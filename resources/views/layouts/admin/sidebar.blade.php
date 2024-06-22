@@ -111,31 +111,6 @@
                                 <li><a href="{{ route('route_BackEnd_Certificate_Create') }}">Tạo mới</a></li>
                             </ul>
                         </li>
-
-                        {{-- <li class="menu-title">Tin tức</li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="ti-archive"></i>
-                                <span>Bài viết</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('route_BackEnd_News_List') }}">Danh sách bài viết</a></li>
-                                <li><a href="{{ route('route_BackEnd_News_Create') }}">Tạo mới</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="ti-archive"></i>
-                                <span>Danh mục bài viết</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('route_BackEnd_Category_News_List') }}">Danh mục bài viết</a>
-                                </li>
-                                <li><a href="{{ route('route_BackEnd_Category_News_Create') }}">Tạo mới</a></li>
-                            </ul>
-                        </li> --}}
                     @endif
                 @endif
 

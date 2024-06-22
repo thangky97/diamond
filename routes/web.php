@@ -140,20 +140,4 @@ Route::prefix('admin')
             Route::post('/update/{id}', 'Admin\ContactController@update')->name('route_BackEnd_Contact_Update');
             Route::get('/remove/{id}', 'Admin\ContactController@remove')->name('route_BackEnd_Contact_Remove');
         });
-
-        Route::prefix('/news')->group(function () {
-            Route::get('/', 'Admin\NewController@index')->name('route_BackEnd_News_List');
-            Route::match(['get', 'post'], '/create', 'Admin\NewController@create')->name('route_BackEnd_News_Create');
-            Route::get('/edit/{id}', 'Admin\NewController@edit')->name('route_BackEnd_News_Edit');
-            Route::post('/update/{id}', 'Admin\NewController@update')->name('route_BackEnd_News_Update');
-            Route::get('/remove/{id}', 'Admin\NewController@remove')->name('route_BackEnd_News_Remove');
-        });
-
-        Route::prefix('/category_news')->group(function () {
-            Route::get('/', 'Admin\CategoryNewController@index')->name('route_BackEnd_Category_News_List');
-            Route::match(['get', 'post'], '/create', 'Admin\CategoryNewController@create')->name('route_BackEnd_Category_News_Create');
-            Route::get('/edit/{id}', 'Admin\CategoryNewController@edit')->name('route_BackEnd_Category_News_Edit');
-            Route::post('/update/{id}', 'Admin\CategoryNewController@update')->name('route_BackEnd_Category_News_Update');
-            Route::get('/remove/{id}', 'Admin\CategoryNewController@remove')->name('route_BackEnd_Category_News_Remove');
-        });
     });
