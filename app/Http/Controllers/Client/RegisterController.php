@@ -37,7 +37,7 @@ class RegisterController extends Controller
             $numberOfItemsInCart = 0; // Nếu $cart không phải là mảng, số lượng sản phẩm trong giỏ hàng là 0
         }
 
-        return view('client.auth.login', $this->v, compact('name', 'numberOfItemsInCart'));
+        return view('client.auth.register', $this->v, compact('name', 'numberOfItemsInCart'));
     }
 
     public function postRegister(Request $request)
@@ -83,99 +83,5 @@ class RegisterController extends Controller
             }
         }
         return view('route_FrontEnd_Login');
-    }
-
-    //fortget password
-    public function forgetPassword(Request $request)
-    {
-        $name = $request->get('name');
-        if ($name) {
-            $this->v['listProduct'] = Product::where('name', 'like', '%' . $name . '%')->paginate(10);
-        } else {
-            $this->v['listProduct'] = Product::where('status', '=', 1)->orderBy('id', 'desc')->paginate(10);
-        }
-
-        $cart = $request->session()->get('cart'); // Lấy giỏ hàng từ session
-
-        if (is_array($cart)) {
-            $numberOfItemsInCart = count($cart); // Đếm số lượng sản phẩm trong giỏ hàng
-        } else {
-            $numberOfItemsInCart = 0; // Nếu $cart không phải là mảng, số lượng sản phẩm trong giỏ hàng là 0
-        }
-
-        return view('client.auth.forget_password', $this->v, compact('name', 'numberOfItemsInCart'));
-    }
-
-    //gửi mail ve
-    public function postforgetPassword(ForgetPasswordRequest $request)
-    {
-        $method_route = 'forgetPassword';
-        $user_profile = DB::table('users')
-            ->where('email', '=', $request->email)
-            ->first();
-        $this->v['email'] = $request->email;
-        $this->v['user_profile'] = $user_profile;
-
-        if (isset($this->v['user_profile'])) {
-            Mail::send('email.forget_password', $this->v, function ($email) {
-                $email->subject('Đặt Lại Mật Khẩu Cho Tài Khoản Của Bạn');
-                $email->to($this->v['email'], 'Sell');
-            });
-
-            Session::flash('success', 'Vui lòng kiểm tra email để đặt lại mật khẩu!');
-            return redirect()->route($method_route);
-        } else {
-            Session::flash('error', 'Email không tồn tại trên hệ thống!');
-            return redirect()->route($method_route);
-        }
-    }
-
-    //bấm link ơ mail nhảy qua đây
-    public function getPassword($id, Request $request)
-    {
-        $name = $request->get('name');
-        if ($name) {
-            $this->v['listProduct'] = Product::where('name', 'like', '%' . $name . '%')->paginate(10);
-        } else {
-            $this->v['listProduct'] = Product::where('status', '=', 1)->orderBy('id', 'desc')->paginate(10);
-        }
-
-        $cart = $request->session()->get('cart'); // Lấy giỏ hàng từ session
-
-        if (is_array($cart)) {
-            $numberOfItemsInCart = count($cart); // Đếm số lượng sản phẩm trong giỏ hàng
-        } else {
-            $numberOfItemsInCart = 0; // Nếu $cart không phải là mảng, số lượng sản phẩm trong giỏ hàng là 0
-        }
-
-        $user_profile = DB::table('users')->where('id', '=', $id)->first();
-        $this->v['user_profile'] = $user_profile;
-        if (isset($this->v['user_profile'])) {
-            return view('client.auth.get_password', $this->v, compact('name', 'numberOfItemsInCart'));
-        }
-        // return view('error.404');
-    }
-
-    public function postPassword(Request $request)
-    {
-        $method_route = 'route_FrontEnd_Login';
-        $user = User::findOrFail($request->id);
-
-        $res = $user
-            ->fill([
-                'password' => Hash::make($request->new_password),
-            ])
-            ->save();
-        if ($res == null) {
-            return redirect()->route($method_route);
-        } elseif ($res == 1) {
-            Session::flash('success', 'Đặt lại mật khẩu thành công!');
-            return redirect()->route($method_route);
-        } else {
-            Session::flash('error', 'Đặt lại mật khẩu thất bại!');
-            return redirect()->route($method_route);
-        }
-
-        // return view('error.404');
     }
 }
