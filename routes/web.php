@@ -99,6 +99,13 @@ Route::prefix('admin')
             Route::get('/remove/{id}', 'Admin\CategoryProductController@remove')->name('route_BackEnd_Category_Product_Remove');
         });
 
+        Route::prefix('/warranty')->group(function () {
+            Route::get('/', 'Admin\WarrantyController@index')->name('route_BackEnd_Warranty_List');
+            Route::match(['get', 'post'], '/create', 'Admin\WarrantyController@create')->name('route_BackEnd_Warranty_Create');
+            Route::get('/edit/{id}', 'Admin\WarrantyController@edit')->name('route_BackEnd_Warranty_Edit');
+            Route::post('/update/{id}', 'Admin\WarrantyController@update')->name('route_BackEnd_Warranty_Update');
+        });
+
         Route::prefix('/comment')->group(function () {
             Route::get('/', 'Admin\CommentController@index')->name('route_BackEnd_Comment_List');
             Route::get('/edit/{id}', 'Admin\CommentController@edit')->name('route_BackEnd_Comment_Edit');
