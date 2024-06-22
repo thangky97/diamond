@@ -17,18 +17,18 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    protected $fillable = [
-        'username',
-        'email',
-        'phone',
-        'password',
-        'date',
-        'avatar',
-        'role',
-        'status',
-        'created_at',
-        'updated_at'
-    ];
+    // protected $fillable = [
+    //     'username',
+    //     'email',
+    //     'phone',
+    //     'password',
+    //     'date',
+    //     'avatar',
+    //     'role',
+    //     'status',
+    //     'created_at',
+    //     'updated_at'
+    // ];
 
     public function saveNew($params)
     {
@@ -74,9 +74,8 @@ class User extends Authenticatable
             $params['cols'],
             [
                 'password' => Hash::make($params['cols']['password']),
-                'phone' => '0956334678',
                 'status' => 1,
-                'role' => 4,
+                'role' => 0,
                 'created_at' => now(), // Thêm ngày và giờ tạo bản ghi
                 // Thêm dữ liệu của các trường khác tại đây
             ]

@@ -3,13 +3,9 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ForgetPasswordRequest;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
@@ -47,18 +43,18 @@ class RegisterController extends Controller
         if ($request->isMethod('post')) {
             $request->validate(
                 [
-                    'username' => 'required|min:3|max:40',
-                    'email' => 'required|email|max:50|unique:users',
+                    'username' => 'required|min:3',
+                    'email' => 'required|email|unique:users',
+                    'phone' => 'required',
                     'password' => 'required|min:6',
                 ],
                 [
                     'username.required' => 'Tên bắt buộc nhập!',
                     'username.min' => 'Tên tối thiểu 3 ký tự!',
-                    'username.max' => 'Tên tối đa là 40 ký tự!',
                     'email.required' => 'Email bắt buộc nhập!',
                     'email.unique' => 'Email đã tồn tại!',
                     'email.email' => 'Email không đúng định dạng!',
-                    'email.max' => 'Email tối đa 50 ký tự!',
+                    'phone.required' => 'Số điện thoại bắt buộc nhập!',
                     'password.required' => 'Mật khẩu bắt buộc nhập!',
                     'password.min' => 'Mật khẩu tối thiểu 6 ký tự!',
                 ],
