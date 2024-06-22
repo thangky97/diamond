@@ -5,8 +5,8 @@
                 ©
                 <script>
                     document.write(new Date().getFullYear())
-                </script> Sell <span class="d-none d-sm-inline-block"> - Bán quần áo <i
-                        class="mdi mdi-heart text-danger"></i> by Loc.</span>
+                </script> <span class="d-none d-sm-inline-block"> - Bán kim cương <i
+                        class="mdi mdi-heart text-danger"></i> by Truong.</span>
             </div>
         </div>
     </div>

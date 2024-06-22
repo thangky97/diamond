@@ -3,7 +3,7 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo logo-dark">
+                <a href="{{ route('route_BackEnd_Dashboard') }}" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="{{ asset('admin/assets/images/logo-sm.png') }}" alt="" height="22">
                     </span>
@@ -12,7 +12,7 @@
                     </span>
                 </a>
 
-                <a href="index.html" class="logo logo-light">
+                <a href="{{ route('route_BackEnd_Dashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="{{ asset('admin/assets/images/favicon.ico') }}" alt="" height="22">
                     </span>
@@ -84,35 +84,27 @@
                     </div>
                     <div data-simplebar style="max-height: 230px;">
                         <div id="notification-list">
-                                <a href="#" class="text-reset notification-item">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0 me-3">
-                                            <div class="avatar-xs">
-                                                <span class="avatar-title bg-success rounded-circle font-size-16">
-                                                    <i class="mdi mdi-bell"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-1">444
-                                            </h6>
-                                            <div class="font-size-12 text-muted">
-                                                <p class="mb-1">20</p>
-                                            </div>
+                            <a href="#" class="text-reset notification-item">
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0 me-3">
+                                        <div class="avatar-xs">
+                                            <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                <i class="mdi mdi-bell"></i>
+                                            </span>
                                         </div>
                                     </div>
-                                </a>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1">444
+                                        </h6>
+                                        <div class="font-size-12 text-muted">
+                                            <p class="mb-1">20</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
 
                         </div>
                     </div>
-                    {{-- <div class="p-2 border-top">
-                        <div class="d-grid">
-                            <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)"
-                                id="view-all-link">
-                                View all
-                            </a>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
 
@@ -128,11 +120,10 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item"
-                        href=""><i
+                    <a class="dropdown-item" href="#"><i
                             class="mdi mdi-account-circle font-size-17 align-middle me-1"></i> Hồ sơ</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i
+                    <a class="dropdown-item text-danger" href="{{ route('logout-user') }}"><i
                             class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i> Đăng xuất</a>
                 </div>
             </div>
