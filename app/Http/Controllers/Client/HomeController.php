@@ -41,4 +41,24 @@ class HomeController extends Controller
 
         return view('home', $this->v, compact('name', 'numberOfItemsInCart'));
     }
+
+    public function search(Request $request)
+    {
+        $name = $request->get('name');
+        if ($name) {
+            $this->v['listProduct'] = Product::where('name', 'like', '%' . $name . '%')->get();
+        } else {
+            $this->v['listProduct'] = Product::where('status', '=', 1)->orderBy('id', 'desc')->get();
+        }
+
+        $cart = $request->session()->get('cart'); // Lấy giỏ hàng từ session
+
+        if (is_array($cart)) {
+            $numberOfItemsInCart = count($cart); // Đếm số lượng sản phẩm trong giỏ hàng
+        } else {
+            $numberOfItemsInCart = 0; // Nếu $cart không phải là mảng, số lượng sản phẩm trong giỏ hàng là 0
+        }
+
+        return view('client.search', $this->v, compact('name', 'numberOfItemsInCart'));
+    }
 }

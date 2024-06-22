@@ -138,8 +138,9 @@
 
 
                     </div>
-                    <form action="search.php" method="get" class="form-inline">
-                        <input type="text" value="" placeholder="Nội dung tìm kiếm" name="noidungtimkiem"
+                    <form action="{{ route('route_FrontEnd_Home') }}" method="get" class="form-inline">
+                        @csrf
+                        <input type="text" name="name" value="{{ $name }}" placeholder="Tên sản phẩm"
                             id="Timkiem" style="font-size: 12px; border: none; padding: 6px; margin-right: 12px;">
                         <button class="btn nav_search-btn" type="submit">
                             <i class="fa fa-search" aria-hidden="true"></i>

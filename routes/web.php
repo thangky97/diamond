@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Client\HomeController@index')->name('route_FrontEnd_Home');
+Route::get('/search', 'Client\HomeController@search')->name('route_FrontEnd_Search');
 Route::get('/products', 'Client\ShopController@index')->name('route_FrontEnd_Product');
 Route::get('/products/detail/{id}', 'Client\ShopController@detail')->name('route_FrontEnd_Product_Detail');
 Route::get('/product-category/{id}', 'Client\ShopController@cate')->name('route_FrontEnd_Category');
