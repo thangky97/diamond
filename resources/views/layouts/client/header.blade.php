@@ -50,7 +50,7 @@
                                     chuyển</a></li>
                             <li><a class="nav-link" href="{{ route('route_FrontEnd_Mua_Hang') }}">Hướng dẫn mua hàng</a>
                             </li>
-                            <li><a class="nav-link" href="{{ route('route_FrontEnd_Bao_Quan') }}p">Hướng dẫn bảo
+                            <li><a class="nav-link" href="{{ route('route_FrontEnd_Bao_Quan') }}">Hướng dẫn bảo
                                     quản</a></li>
                         </ul>
                     </li>
@@ -63,7 +63,7 @@
                             Đăng nhập
                         </span>
                     </a>
-                    <a href="register.php">
+                    <a href="{{ route('getRegister') }}">
                         <i class="fa fa-user2" aria-hidden="true"></i>
                         <span>
                             Đăng kí
