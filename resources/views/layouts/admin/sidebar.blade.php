@@ -23,10 +23,10 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fa-user-md"></i>
-                                <span>Khách hàng</span>
+                                <span>Người dùng</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('route_BackEnd_Customers_List') }}">Danh sách khách hàng</a></li>
+                                <li><a href="{{ route('route_BackEnd_Customers_List') }}">Danh sách người dùng</a></li>
                                 <li><a href="{{ route('route_BackEnd_Customers_Create') }}">Tạo mới</a></li>
                             </ul>
                         </li>

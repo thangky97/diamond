@@ -46,8 +46,8 @@ class CustomerController extends Controller
 
         if ($request->isMethod('post')) {
             $request->validate([
-                'username' => 'required|min:3|max:40',
-                'email' => 'required|email|max:50|unique:users',
+                'username' => 'required|min:3',
+                'email' => 'required|email|unique:users',
                 'phone' => 'required|numeric|min:10',
                 'password' => 'required|min:6',
                 'images' =>
@@ -60,11 +60,9 @@ class CustomerController extends Controller
             ], [
                 'username.required' => 'Tên bắt buộc nhập!',
                 'username.min' => 'Tên tối thiểu 3 ký tự!',
-                'username.max' => 'Tên tối đa là 40 ký tự!',
                 'email.required' => 'Email bắt buộc nhập!',
                 'email.unique' => 'Email đã tồn tại!',
                 'email.email' => 'Email không đúng định dạng!',
-                'email.max' => 'Email tối đa 50 ký tự!',
                 'password.required' => 'Mật khẩu bắt buộc nhập!',
                 'password.min' => 'Mật khẩu tối thiểu 6 ký tự!',
                 'phone.required' => 'Số điện thoại bắt buộc nhập!',

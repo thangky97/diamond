@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title', 'Sửa khách hàng')
+@section('title', 'Sửa người dùng')
 
 @section('content')
 
@@ -24,15 +24,14 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <h4 class="card-title mb-4">Sửa khách hàng</h4>
+                                <h4 class="card-title mb-4">Sửa người dùng</h4>
 
                                 <form class="custom-validation"
                                     action="{{ route('route_BackEnd_Customers_Update', ['id' => request()->route('id')]) }}"
                                     method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
-                                        <label class="form-label">Tên <span
-                                            class="text-danger">*</span></label>
+                                        <label class="form-label">Tên <span class="text-danger">*</span></label>
                                         <input type="text" name="username" class="form-control"
                                             value="{{ $customer->username }}">
                                         @error('username')
@@ -43,8 +42,7 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">E-Mail <span
-                                            class="text-danger">*</span></label>
+                                        <label class="form-label">E-Mail <span class="text-danger">*</span></label>
                                         <div>
                                             <input type="email" name="email" class="form-control"
                                                 value="{{ $customer->email }}" parsley-type="email">
@@ -56,8 +54,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Mật khẩu <span
-                                            class="text-danger">*</span></label>
+                                        <label class="form-label">Mật khẩu <span class="text-danger">*</span></label>
                                         <div>
                                             <input type="password" name="password" id="pass2" class="form-control"
                                                 value="{{ $customer->password }}">
@@ -69,8 +66,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Số điện thoại <span
-                                            class="text-danger">*</span></label>
+                                        <label class="form-label">Số điện thoại <span class="text-danger">*</span></label>
                                         <div>
                                             <input data-parsley-type="number" name="phone" type="text"
                                                 class="form-control" value="{{ $customer->phone }}">
@@ -99,30 +95,20 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Quyền<span
-                                            class="text-danger">*</span></label>
+                                        <label class="form-label">Quyền<span class="text-danger">*</span></label>
                                         <select name="role" class="form-select" id="validationCustom04">
-                                            <option value="0"
-                                                {{ isset($customer) && $customer->role === 0 ? 'selected' : '' }}>
-                                                Admin</option>
                                             <option value="1"
                                                 {{ isset($customer) && $customer->role === 1 ? 'selected' : '' }}>
-                                                Manager</option>
-                                            <option value="2"
-                                                {{ isset($customer) && $customer->role === 2 ? 'selected' : '' }}>
-                                                Staff</option>
-                                            <option value="3"
-                                                {{ isset($customer) && $customer->role === 3 ? 'selected' : '' }}>
-                                                Editor</option>
-                                            <option value="4"
-                                                {{ isset($customer) && $customer->role === 4 ? 'selected' : '' }}>
-                                                User</option>
-                                            </select>
-                                            @error('role')
-                                                <div>
-                                                    <p class="text-danger">{{ $message }}</p>
-                                                </div>
-                                            @enderror
+                                                Admin</option>
+                                            <option value="0"
+                                                {{ isset($customer) && $customer->role === 0 ? 'selected' : '' }}>
+                                                Người dùng</option>
+                                        </select>
+                                        @error('role')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Trạng thái </label>
@@ -136,14 +122,15 @@
                                             <option value="0"
                                                 {{ isset($customer) && $customer->status === 0 ? 'selected' : '' }}>
                                                 Khóa</option>
-                                            </select>
-                                            @error('status')
-                                                <div>
-                                                    <p class="text-danger">{{ $message }}</p>
-                                                </div>
-                                            @enderror
+                                        </select>
+                                        @error('status')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                        @enderror
                                     </div>
-                                    <input type="text" name="updated_at" value="{{date("Y-m-d H:i:s", strtotime("now"))}}" hidden>
+                                    <input type="text" name="updated_at"
+                                        value="{{ date('Y-m-d H:i:s', strtotime('now')) }}" hidden>
                                     <div class="mb-0">
                                         <div class="text-end">
                                             <button type="submit" class="btn btn-primary waves-effect waves-light me-1">

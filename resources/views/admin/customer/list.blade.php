@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title', 'Danh sách khách hàng')
+@section('title', 'Danh sách người dùng')
 
 @section('content')
 
@@ -44,7 +44,7 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title mb-4">Danh sách khách hàng</h4>
+                                <h4 class="card-title mb-4">Danh sách người dùng</h4>
                                 <div class="table-responsive">
                                     <table class="table table-hover table-centered table-nowrap table-striped mb-0">
                                         <thead>
@@ -61,7 +61,8 @@
                                         <tbody>
                                             @forelse ($customers as $customer)
                                                 <tr>
-                                                    <th scope="row" class="text-primary">{{ 'CU000' . $customer->id }}</th>
+                                                    <th scope="row" class="text-primary">{{ 'CU000' . $customer->id }}
+                                                    </th>
                                                     <td>
                                                         <div>
                                                             <img src="{{ asset($customer->avatar) ? '' . Storage::url($customer->avatar) : $customer->username }}"
@@ -84,16 +85,10 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        @if ($customer && $customer->role === 0)
+                                                        @if ($customer && $customer->role === 1)
                                                             <span class="">Admin</span>
-                                                        @elseif ($customer && $customer->role === 1)
-                                                            <span class="">Manager</span>
-                                                        @elseif ($customer && $customer->role === 2)
-                                                            <span class="">Staff</span>
-                                                        @elseif ($customer && $customer->role === 3)
-                                                            <span class="">Editor</span>
                                                         @else
-                                                            <span class="">User</span>
+                                                            <span class="">Người dùng</span>
                                                         @endif
                                                     </td>
                                                     <td>

@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title', 'Thêm khách hàng')
+@section('title', 'Thêm người dùng')
 
 @section('content')
 
@@ -24,7 +24,7 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <h4 class="card-title mb-4">Thêm khách hàng</h4>
+                                <h4 class="card-title mb-4">Thêm người dùng</h4>
 
                                 <form id="frm1" class="custom-validation" action="" method="post"
                                     enctype="multipart/form-data">
@@ -83,8 +83,8 @@
                                             <div class="form-file">
                                                 <input type="file" name="images" class="form-file-input form-control">
                                                 @if (isset($customer) && $customer->avatar)
-                                                    <img src="{{ asset($customer->avatar) }}" alt="{{ $customer->username }}"
-                                                        width="100">
+                                                    <img src="{{ asset($customer->avatar) }}"
+                                                        alt="{{ $customer->username }}" width="100">
                                                 @endif
                                                 @error('images')
                                                     <div>
@@ -97,11 +97,8 @@
                                     <div class="mb-3">
                                         <label class="form-label">Quyền</label>
                                         <select name="role" class="form-select" id="validationCustom04">
-                                            <option selected value="0">Admin</option>
-                                            <option value="1">Manager</option>
-                                            <option value="2">Staff</option>
-                                            <option value="3">Editor</option>
-                                            <option value="4">User</option>
+                                            <option selected value="1">Admin</option>
+                                            <option value="0">Người dùng</option>
                                         </select>
                                         @error('role')
                                             <div>

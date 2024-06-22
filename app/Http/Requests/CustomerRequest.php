@@ -22,10 +22,10 @@ class CustomerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => 'required|min:3|max:40',
+            'username' => 'required|min:3',
             'phone' => 'required|numeric|min:10',
             'password' => 'required|min:6',
-            'email' => 'required|email|max:50',
+            'email' => 'required|email',
             'images' =>
             [
                 'image',
@@ -41,10 +41,8 @@ class CustomerRequest extends FormRequest
         return [
             'username.required' => 'Tên bắt buộc nhập!',
             'username.min' => 'Tên tối thiểu 3 ký tự!',
-            'username.max' => 'Tên tối đa là 40 ký tự!',
             'email.required' => 'Email bắt buộc nhập!',
             'email.email' => 'Email không đúng định dạng!',
-            'email.max' => 'Email tối đa 50 ký tự!',
             'password.required' => 'Mật khẩu bắt buộc nhập!',
             'password.min' => 'Mật khẩu tối thiểu 6 ký tự!',
             'phone.required' => 'Số điện thoại bắt buộc nhập!',
