@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title', 'Danh sách phiếu bảo hành')
+@section('title', 'Danh sách mã giảm giá')
 
 @section('content')
     @php
@@ -47,61 +47,50 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title mb-4">Danh sách phiếu bảo hành</h4>
+                                <h4 class="card-title mb-4">Danh sách mã giảm giá</h4>
                                 <div class="table-responsive">
                                     <table class="table table-hover table-centered table-nowrap table-striped mb-0">
                                         <thead>
                                             <tr>
                                                 <th scope="col">ID</th>
-                                                <th scope="col">Sản phẩm</th>
-                                                <th scope="col">Người dùng</th>
-                                                <th scope="col">Thời gian bảo hành</th>
-                                                <th scope="col">Ngày bảo hành</th>
-                                                {{-- <th scope="col">Nội dung ngắn</th> --}}
+                                                <th scope="col">Mã</th>
+                                                <th scope="col">Tên chương trình</th>
+                                                <th scope="col">Giảm giá</th>
+                                                <th scope="col">Ngày có hiệu lực</th>
+                                                <th scope="col">Ngày hết hạn</th>
+                                                <th scope="col">Trạng thái</th>
                                                 <th scope="col">Hành động</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @forelse ($warranty as $item)
+                                            @forelse ($voucher as $item)
                                                 <tr>
                                                     <th scope="row" class="text-primary">{{ 'PBH000' . $item->id }}</th>
                                                     <td>
-                                                        @if ($item->product)
-                                                            <span>{{ $item->product->name }}</span>
-                                                        @else
-                                                            <span></span>
-                                                        @endif
+                                                        {{ $item->code }}
                                                     </td>
                                                     <td>
-                                                        @if ($item->user)
-                                                            <span>{{ $item->user->username }}</span>
-                                                        @else
-                                                            <span></span>
-                                                        @endif
+                                                        {{ $item->name }}
                                                     </td>
                                                     <td>
-                                                        {{ $item->time }} tháng
+                                                        {{ number_format($item->discount) }}
                                                     </td>
                                                     <td>
-                                                        {{ Carbon::parse($item->date)->format('d-m-Y') }}
+                                                        {{ Carbon::parse($item->start_date)->format('d-m-Y') }}
                                                     </td>
-                                                    {{-- <td>
-                                                        @if ($item->short_desc)
-                                                            @php
-                                                                $limitedMessage = Str::limit(
-                                                                    $item->short_desc,
-                                                                    20,
-                                                                    '...',
-                                                                );
-                                                            @endphp
-                                                            <span>{!! $limitedMessage !!}</span>
+                                                    <td>
+                                                        {{ Carbon::parse($item->end_date)->format('d-m-Y') }}
+                                                    </td>
+                                                    <td>
+                                                        @if ($item && $item->status === 1)
+                                                            <span class="badge bg-success">Hoạt động</span>
                                                         @else
-                                                            <span></span>
+                                                            <span class="badge bg-danger">Không hoạt động</span>
                                                         @endif
-                                                    </td> --}}
+                                                    </td>
                                                     <td>
                                                         <div>
-                                                            <a href="{{ route('route_BackEnd_Warranty_Edit', $item->id) }}"
+                                                            <a href="{{ route('route_BackEnd_Voucher_Edit', $item->id) }}"
                                                                 class="btn btn-primary btn-sm">Chỉnh sửa</a>
                                                         </div>
                                                     </td>
@@ -115,7 +104,7 @@
                                     </table>
                                 </div>
                                 <div class="mt-4">
-                                    {{ $warranty->links() }}
+                                    {{ $voucher->links() }}
                                 </div>
                             </div>
                         </div>

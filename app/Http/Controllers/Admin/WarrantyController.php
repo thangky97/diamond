@@ -55,10 +55,10 @@ class WarrantyController extends Controller
             if ($res == null) {
                 return  redirect()->route($method_route);
             } elseif ($res > 0) {
-                Session::flash('success', 'Thêm bài viết thành công!');
+                Session::flash('success', 'Thêm thành công!');
                 return redirect()->route('route_BackEnd_Warranty_List');
             } else {
-                Session::flash('error', 'Thêm bài viết không thành công!');
+                Session::flash('error', 'Thêm không thành công!');
                 return redirect()->route($method_route);
             }
         }

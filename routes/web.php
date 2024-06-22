@@ -120,12 +120,11 @@ Route::prefix('admin')
             Route::get('pdf/{id}', 'Admin\OrderController@pdf')->name('route_BackEnd_Orders_PDF');
         });
 
-        Route::prefix('/banner')->group(function () {
-            Route::get('/', 'Admin\BannerController@index')->name('route_BackEnd_Banner_List');
-            Route::match(['get', 'post'], '/create', 'Admin\BannerController@create')->name('route_BackEnd_Banner_Create');
-            Route::get('/edit/{id}', 'Admin\BannerController@edit')->name('route_BackEnd_Banner_Edit');
-            Route::post('/update/{id}', 'Admin\BannerController@update')->name('route_BackEnd_Banner_Update');
-            Route::get('/remove/{id}', 'Admin\BannerController@remove')->name('route_BackEnd_Banner_Remove');
+        Route::prefix('/voucher')->group(function () {
+            Route::get('/', 'Admin\VoucherController@index')->name('route_BackEnd_Voucher_List');
+            Route::match(['get', 'post'], '/create', 'Admin\VoucherController@create')->name('route_BackEnd_Voucher_Create');
+            Route::get('/edit/{id}', 'Admin\VoucherController@edit')->name('route_BackEnd_Voucher_Edit');
+            Route::post('/update/{id}', 'Admin\VoucherController@update')->name('route_BackEnd_Voucher_Update');
         });
 
         Route::prefix('/contact')->group(function () {

@@ -81,19 +81,22 @@
                             </ul>
                         </li>
 
-                        <li class="menu-title">Đánh giá</li>
+                        <li class="menu-title">Voucher</li>
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="mdi mdi-phone-ring"></i>
-                                <span>Comment</span>
+                                <span>Mã giảm giá</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('route_BackEnd_Comment_List') }}">Danh sách comment</a></li>
+                                <li><a href="{{ route('route_BackEnd_Voucher_List') }}">Danh sách voucher</a></li>
+                            </ul>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('route_BackEnd_Voucher_Create') }}">Tạo mới</a></li>
                             </ul>
                         </li>
 
-                        <li class="menu-title">Tin tức</li>
+                        {{-- <li class="menu-title">Tin tức</li>
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -116,7 +119,7 @@
                                 </li>
                                 <li><a href="{{ route('route_BackEnd_Category_News_Create') }}">Tạo mới</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                     @endif
                 @endif
 
