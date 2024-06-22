@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="lienhe.php">liên hệ</a>
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Contact') }}">liên hệ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">chăm sóc khách hàng</a>

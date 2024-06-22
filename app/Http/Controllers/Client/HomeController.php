@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\CategoryProduct;
-use App\Models\News;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -36,8 +35,6 @@ class HomeController extends Controller
         $this->v['productDiscount'] = Product::where('status', '=', 1)->where('discount', '>', 0)->paginate(6);
 
         $this->v['categoryProduct'] = CategoryProduct::where('status', '=', 1)->paginate(3);
-
-        $this->v['news'] = News::with('admin')->where('status', '=', 1)->paginate(5);
 
         return view('home', $this->v, compact('name', 'numberOfItemsInCart'));
     }

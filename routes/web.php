@@ -18,9 +18,10 @@ Route::get('/search', 'Client\HomeController@search')->name('route_FrontEnd_Sear
 Route::get('/products', 'Client\ShopController@index')->name('route_FrontEnd_Product');
 Route::get('/products/detail/{id}', 'Client\ShopController@detail')->name('route_FrontEnd_Product_Detail');
 Route::get('/product-category/{id}', 'Client\ShopController@cate')->name('route_FrontEnd_Category');
-Route::get('/news', 'Client\NewsController@index')->name('route_FrontEnd_News');
-Route::get('/news/detail/{id}', 'Client\NewsController@detail')->name('route_FrontEnd_News_Detail');
+
 Route::get('/contact', 'Client\ContactController@index')->name('route_FrontEnd_Contact');
+Route::post('/contact', 'Client\ContactController@create')->name('route_FrontEnd_Contact_Create');
+
 Route::get('/about', 'Client\AboutUsController@index')->name('route_FrontEnd_About');
 
 Route::get('/doi-tra', 'Client\DoiTraController@index')->name('route_FrontEnd_Doi_Tra');
