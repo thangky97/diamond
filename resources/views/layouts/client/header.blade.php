@@ -42,7 +42,8 @@
                         <ul class="sub-menu1">
                             <li><a class="nav-link" href="{{ route('route_FrontEnd_Doi_Tra') }}">Chính sách đổi trả</a>
                             </li>
-                            <li><a class="nav-link" href="baohanh.php">Chính sách bảo hành</a></li>
+                            <li><a class="nav-link" href="{{ route('route_FrontEnd_Bao_Hanh') }}">Chính sách bảo
+                                    hành</a></li>
                             <li><a class="nav-link" href="thanhvien.php">Chính sách thành viên</a></li>
                             <li><a class="nav-link" href="vanchuyen.php">Chính sách vận chuyển</a></li>
                             <li><a class="nav-link" href="muahang.php">Hướng dẫn mua hàng</a></li>
