@@ -48,7 +48,8 @@
                                     viên</a></li>
                             <li><a class="nav-link" href="{{ route('route_FrontEnd_Van_Chuyen') }}">Chính sách vận
                                     chuyển</a></li>
-                            <li><a class="nav-link" href="muahang.php">Hướng dẫn mua hàng</a></li>
+                            <li><a class="nav-link" href="{{ route('route_FrontEnd_Mua_Hang') }}">Hướng dẫn mua hàng</a>
+                            </li>
                             <li><a class="nav-link" href="baoquan.php">Hướng dẫn bảo quản</a></li>
                         </ul>
                     </li>
