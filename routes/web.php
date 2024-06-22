@@ -48,13 +48,6 @@ Route::get('/login-user', 'Client\LoginController@index')->name('route_FrontEnd_
 Route::post('/login-user', 'Client\LoginController@post')->name('route_FrontEnd_Login_Post');
 Route::get('/register-user', 'Client\RegisterController@getRegister')->name('getRegister');
 Route::post('/register-user', 'Client\RegisterController@postRegister')->name('postRegister');
-Route::get('/forget-password', 'Client\RegisterController@forgetPassword')->name('forgetPassword');
-Route::post('/forget-password', 'Client\RegisterController@postforgetPassword')->name('postforgetPassword');
-Route::get('/get-password/{id}', 'Client\RegisterController@getPassword')->name('getPassword');
-Route::post('/get-password/{id}', 'Client\RegisterController@postPassword')->name('postPassword');
-
-Route::get('/login-google', 'Client\LoginController@getLoginGoogle')->name('getLoginGoogle');
-Route::get('/google/callback', 'Client\LoginController@loginGoogleCallback')->name('loginGoogleCallback');
 
 //logout client
 Route::get('/logout-user', ['as' => 'logout-user', 'uses' => 'Client\LoginController@getLogout'])->middleware('auth');

@@ -57,18 +57,33 @@
                 </ul>
                 <div class="user_option">
 
-                    <a href="{{ route('route_FrontEnd_Login') }}">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <span>
-                            Đăng nhập
-                        </span>
-                    </a>
-                    <a href="{{ route('getRegister') }}">
-                        <i class="fa fa-user2" aria-hidden="true"></i>
-                        <span>
-                            Đăng kí
-                        </span>
-                    </a>
+                    @if (Auth::check())
+                        <a href="#">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>
+                                {{ Auth::user()->username }}
+                            </span>
+                        </a>
+                        <a href="{{ route('logout-user') }}">
+                            <i class="fa fa-user2" aria-hidden="true"></i>
+                            <span>
+                                Đăng xuất
+                            </span>
+                        </a>
+                    @else
+                        <a href="{{ route('route_FrontEnd_Login') }}">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>
+                                Đăng nhập
+                            </span>
+                        </a>
+                        <a href="{{ route('getRegister') }}">
+                            <i class="fa fa-user2" aria-hidden="true"></i>
+                            <span>
+                                Đăng kí
+                            </span>
+                        </a>
+                    @endif
 
                     <!-- Giỏ hàng -->
                     <div class="header__cart">

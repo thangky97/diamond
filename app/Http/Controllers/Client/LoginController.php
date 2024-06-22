@@ -5,12 +5,9 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -50,8 +47,15 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($login)) {
+            $user = Auth::user();
+
             Session::flash('success', 'Đăng nhập thành công!');
-            return redirect()->route('route_FrontEnd_Home');
+
+            if ($user->role == 1) {
+                return redirect()->route('route_BackEnd_Dashboard');
+            } else {
+                return redirect()->route('route_FrontEnd_Home');
+            }
         } else {
             Session::flash('error', 'Sai email hoặc mật khẩu');
             return redirect()->route($method_route);
@@ -68,38 +72,5 @@ class LoginController extends Controller
 
         $request->session()->flush();
         return redirect()->route('route_FrontEnd_Login');
-    }
-
-    public function getLoginGoogle()
-    {
-        return Socialite::driver('google')->stateless()->redirect();
-    }
-
-    public function loginGoogleCallback()
-    {
-        $googleUser = Socialite::driver('google')->stateless()->user();
-
-        if ($googleUser) {
-            $user = User::where('email', $googleUser->email)->first();
-
-            if ($user) {
-                Auth::login($user);
-                return redirect()->route('route_FrontEnd_Home');
-            }
-
-            $newUser = new User();
-            $newUser->fill($googleUser->user);
-            $newUser->lastName = $googleUser->user['given_name'];
-            $newUser->firstName = $googleUser->user['family_name'];
-            $newUser->username = $googleUser->name;
-            $newUser->avatar = $googleUser->avatar;
-            $newUser->email = $googleUser->email;
-            $newUser->password = Hash::make('123456');
-            $newUser->role = 4;
-            $newUser->status = 1;
-
-            $newUser->save();
-            return redirect()->route('route_FrontEnd_Home');
-        }
     }
 }
