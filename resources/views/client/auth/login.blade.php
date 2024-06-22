@@ -32,7 +32,7 @@
 
 <body>
     <div class="quay_ve">
-        <a href="index.php"><-- Trang chủ</a>
+        <a href="{{ route('route_FrontEnd_Home') }}"><-- Trang chủ</a>
     </div>
     <div class="login-container">
         <span>

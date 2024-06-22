@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class AboutUsController extends Controller
+class DoiTraController extends Controller
 {
     private $v;
     public function __construct()
@@ -23,6 +23,6 @@ class AboutUsController extends Controller
             $this->v['listProduct'] = Product::where('status', '=', 1)->orderBy('id', 'desc')->paginate(10);
         }
 
-        return view('client.about', compact('name'));
+        return view('client.doi_tra', compact('name'));
     }
 }

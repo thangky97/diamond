@@ -16,7 +16,8 @@
             <div class="collapse navbar-collapse innerpage_navbar" id="navbarSupportedContent">
                 <ul class="navbar-nav  ">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Home') }}">Home <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ao.php">
@@ -39,7 +40,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="">chăm sóc khách hàng</a>
                         <ul class="sub-menu1">
-                            <li><a class="nav-link" href="doitra.php">Chính sách đổi trả</a></li>
+                            <li><a class="nav-link" href="{{ route('route_FrontEnd_Doi_Tra') }}">Chính sách đổi trả</a>
+                            </li>
                             <li><a class="nav-link" href="baohanh.php">Chính sách bảo hành</a></li>
                             <li><a class="nav-link" href="thanhvien.php">Chính sách thành viên</a></li>
                             <li><a class="nav-link" href="vanchuyen.php">Chính sách vận chuyển</a></li>
@@ -128,105 +130,5 @@
         </nav>
     </header>
     <!-- end header section -->
-    <!-- slider section -->
 
-    <section class="slider_section animate__animated animate__fadeIn">
-        <div class="slider_container">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="detail-box">
-                                        <h1>
-                                            Welcome To Our <br>
-                                            SuitAble Shop
-                                        </h1>
-                                        <p>
-                                            SuitAble là một thương hiệu thời trang trẻ được thành lập vào tháng 7
-                                            năm 2023.
-                                        </p>
-                                        <a href="lienhe.php">
-                                            Liên hệ với chúng tôi
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 ">
-                                    <div class="img-box">
-                                        <img src="{{ asset('client/assets/images/anhbia1.png') }}" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="detail-box">
-                                        <h1>
-                                            Welcome To Our <br>
-                                            SuitAble Shop
-                                        </h1>
-                                        <p>
-                                            Với quan điểm bảo vệ môi trường SuitAble luôn sử dụng những chất liệu
-                                            thân thiện với môi trường(sợi Cotton).
-                                        </p>
-                                        <a href="lienhe.php">
-                                            Liên hệ với chúng tôi
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 ">
-                                    <div class="img-box">
-                                        <img src="{{ asset('client/assets/images/anhbia2.png') }}" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="detail-box">
-                                        <h1>
-                                            Welcome To Our <br>
-                                            SuitAble Shop
-                                        </h1>
-                                        <p>
-                                            Đến với SuitAble, chúng tôi sẽ giúp bạn trở nên trẻ trung, phong cách
-                                            thông qua thời trang.
-                                        </p>
-                                        <a href="lienhe.php">
-                                            Liên hệ với chúng tôi
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 ">
-                                    <div class="img-box">
-                                        <img src="{{ asset('client/assets/images/anhbia3.png') }}" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel_btn-box">
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                        data-slide="prev">
-                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <img src="{{ asset('client/assets/images/line.png') }}" alt="" />
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                        data-slide="next">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>

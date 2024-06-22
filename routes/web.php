@@ -22,6 +22,13 @@ Route::get('/news/detail/{id}', 'Client\NewsController@detail')->name('route_Fro
 Route::get('/contact', 'Client\ContactController@index')->name('route_FrontEnd_Contact');
 Route::get('/about', 'Client\AboutUsController@index')->name('route_FrontEnd_About');
 
+Route::get('/doi-tra', 'Client\DoiTraController@index')->name('route_FrontEnd_Doi_Tra');
+Route::get('/bao-hanh', 'Client\BaoHanhController@index')->name('route_FrontEnd_Bao_Hanh');
+Route::get('/thanh-vien', 'Client\ThanhVienController@index')->name('route_FrontEnd_Thanh_Vien');
+Route::get('/van-chuyen', 'Client\VanChuyenController@index')->name('route_FrontEnd_Van_Chuyen');
+Route::get('/mua-hang', 'Client\MuaHangController@index')->name('route_FrontEnd_Mua_Hang');
+Route::get('/bao-quan', 'Client\BaoQuanController@index')->name('route_FrontEnd_Bao_Quan');
+
 Route::post('/createComment/{id?}', 'Client\CommentController@createComment')->name('createComment');
 Route::delete('/comment/delete/{comment}', 'Client\CommentController@commentDelete')->name('commentDelete');
 

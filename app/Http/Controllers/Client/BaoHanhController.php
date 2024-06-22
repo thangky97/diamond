@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class AboutUsController extends Controller
+class BaoHanhController extends Controller
 {
     private $v;
     public function __construct()
