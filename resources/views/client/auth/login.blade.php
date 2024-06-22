@@ -1,163 +1,69 @@
-@extends('layouts.client.master')
+<!DOCTYPE html>
+<html>
 
-@section('title', 'Đăng nhập')
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="{{ asset('client/assets/images/favicon.png') }}" type="image/x-icon">
 
-@section('content')
+    <title>
+        Trang đăng nhập
+    </title>
 
-    <main class="site-main  main-container no-sidebar" style="padding-top: 140px">
-        <div class="container">
-            <div class="row">
-                <div class="main-content col-md-12">
-                    <div class="page-main-content">
-                        <div class="akasha">
-                            <div class="akasha-notices-wrapper"></div>
-                            <div class="u-columns col2-set" id="customer_login">
-                                <div class="u-column1 col-1">
-                                    <h2>Đăng nhập</h2>
-                                    <form class="akasha-form akasha-form-login login"
-                                        action="{{ route('route_FrontEnd_Login_Post') }}" method="post">
-                                        @csrf
-                                        @if (Session::has('success'))
-                                            <div class="alert alert-success alert-dismissible" role="alert">
-                                                <strong>{{ Session::get('success') }}</strong>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    <span class="sr-only">Close</span>
-                                                </button>
-                                            </div>
-                                        @endif
-                                        @if (Session::has('error'))
-                                            <div
-                                                class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
-                                                <span><i class="mdi mdi-help"></i></span>
-                                                <strong>{{ Session::get('error') }}</strong>
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                    aria-label="btn-close">
-                                                </button>
-                                            </div>
-                                        @endif
-                                        <p class="akasha-form-row akasha-form-row--wide form-row form-row-wide">
-                                            <label for="username">Email&nbsp;<span class="required">*</span></label>
-                                            <input type="text" class="akasha-Input akasha-Input--text input-text"
-                                                name="email" id="username" autocomplete="username"
-                                                value="{{ old('email', isset($request['email']) ? $request['email'] : '') }}">
-                                            @error('email')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                        @enderror
-                                        </p>
-                                        <p class="akasha-form-row akasha-form-row--wide form-row form-row-wide">
-                                            <label for="password">Password&nbsp;<span class="required">*</span></label>
-                                            <input class="akasha-Input akasha-Input--text input-text" type="password"
-                                                name="password" id="password" autocomplete="current-password">
-                                            @error('password')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                        @enderror
-                                        </p>
-                                        <p class="form-row">
-                                            <button type="submit" class="akasha-Button button">Đăng nhập
-                                            </button>
-                                            {{-- <a class="btn btn-block btn-sm btn-facebook transition-3d-hover"
-                                                href="{{ route('getLoginGoogle') }}">
-                                                <span class="fa fa-google mr-2"></span>
-                                                Google
-                                            </a> --}}
-                                        <div class="akasha-socials style-01">
-                                            <div class="content-socials">
-                                                <ul class="socials-list">
-                                                    <li><a href="{{ route('getLoginGoogle') }}">
-                                                            <i class="fa fa-google"></i>
-                                                        </a></li>
-                                                    <li><a href="#">
-                                                            <i class="fa fa-facebook"></i>
-                                                        </a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        {{-- <a class="btn btn-block btn-sm btn-google transition-3d-hover ml-5 mt-0"
-                                                href="#">
-                                                <span class="fa fa-facebook-f mr-2"></span>
-                                                Facebook
-                                            </a> --}}
-                                        </p>
-                                        <p class="akasha-LostPassword lost_password">
-                                            <a href="{{route('forgetPassword')}}">Quên mật khẩu?</a>
-                                        </p>
-                                    </form>
-                                </div>
-                                <div class="u-column2 col-2">
-                                    <h2>Đăng ký</h2>
-                                    <form action="{{ route('postRegister') }}" method="post"
-                                        class="akasha-form akasha-form-register register">
-                                        @csrf
-                                        @if (Session::has('success'))
-                                            <div class="alert alert-success alert-dismissible" role="alert">
-                                                <strong>{{ Session::get('success') }}</strong>
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    <span class="sr-only">Close</span>
-                                                </button>
-                                            </div>
-                                        @endif
-                                        @if (Session::has('error'))
-                                            <div
-                                                class="alert alert-danger solid alert-end-icon alert-dismissible fade show">
-                                                <span><i class="mdi mdi-help"></i></span>
-                                                <strong>{{ Session::get('error') }}</strong>
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                    aria-label="btn-close">
-                                                </button>
-                                            </div>
-                                        @endif
-                                        <p class="akasha-form-row akasha-form-row--wide form-row form-row-wide">
-                                            <label for="name">Tên&nbsp;<span class="required">*</span></label>
-                                            <input type="text" class="akasha-Input akasha-Input--text input-text"
-                                                name="username" id="name" autocomplete="name"
-                                                value="{{ old('username', isset($request['username']) ? $request['username'] : '') }}">
-                                            @error('username')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                        @enderror
-                                        </p>
-                                        <p class="akasha-form-row akasha-form-row--wide form-row form-row-wide">
-                                            <label for="reg_email">Email&nbsp;<span class="required">*</span></label>
-                                            <input type="email" class="akasha-Input akasha-Input--text input-text"
-                                                name="email" id="reg_email" autocomplete="email"
-                                                value="{{ old('email', isset($request['email']) ? $request['email'] : '') }}">
-                                            @error('email')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                        @enderror
-                                        </p>
-                                        <p class="akasha-form-row akasha-form-row--wide form-row form-row-wide">
-                                            <label for="password">Password&nbsp;<span class="required">*</span></label>
-                                            <input type="password" class="akasha-Input akasha-Input--text input-text"
-                                                name="password" id="password" autocomplete="password" value="">
-                                            @error('password')
-                                            <div>
-                                                <p class="text-danger">{{ $message }}</p>
-                                            </div>
-                                        @enderror
-                                        </p>
-                                        <p class="akasha-FormRow form-row">
-                                            <button type="submit" class="akasha-Button button">Đăng ký
-                                            </button>
-                                        </p>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/bootstrap.css') }}" />
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('client/assets/css/login.css') }}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{{ asset('client/assets/css/responsive.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="quay_ve">
+        <a href="index.php"><-- Trang chủ</a>
+    </div>
+    <div class="login-container">
+        <span>
+            <img src="https://img.upanh.tv/2023/07/12/Suit_able_auto_x2.jpg" alt="Suit_able_auto_x2.jpg" border="0">
+        </span>
+        <h2>Đăng nhập</h2>
+        <form id="form1" name="form1" method="post">
+            <div align="center">
+                <h2><strong></strong>
+                </h2>
             </div>
-        </div>
-    </main>
+            <table width="100%" border="0" align="center">
+                <tr>
+                    <th scope="row">
+                        <div align="left">Tên tài khoản: </div>
+                    </th>
+                    <td><input type="text" name="txtUser" /></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div align="left">Mật khẩu: </div>
+                    </th>
+                    <td><input type="password" name="txtPass" /></td>
+                </tr>
+                <tr>
+                    <th colspan="2" scope="row"><input type="submit" name="login" value="Đăng nhập" /></th>
+                </tr>
+            </table>
+            <p align="center">&nbsp;</p>
+        </form>
+    </div>
+</body>
 
-@endsection
+</html>

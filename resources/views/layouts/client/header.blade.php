@@ -1,220 +1,232 @@
-<header id="header" class="header style-02 header-dark header-transparent header-sticky" style="background-color: #fff">
-    <div class="header-wrap-stick">
-        <div class="header-position">
-            <div class="header-middle">
-                <div class="akasha-menu-wapper"></div>
-                <div class="header-middle-inner">
-                    <div class="header-search-menu">
-                        <div class="block-menu-bar">
-                            <a class="menu-bar menu-toggle" href="#">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="header-logo-nav">
-                        <div class="header-logo">
-                            <a href="index.html"><img alt="Akasha" src="{{ asset('client/assets/images/logo.png') }}"
-                                    class="logo"></a>
-                        </div>
-                        <div class="box-header-nav menu-nocenter">
-                            <ul id="menu-primary-menu"
-                                class="clone-main-menu akasha-clone-mobile-menu akasha-nav main-menu">
-                                <li id="menu-item-230"
-                                    class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-230 parent parent-megamenu item-megamenu menu-item-has-children">
-                                    <a class="akasha-menu-item-title" title="Home" href="/">Trang chủ</a>
-                                </li>
-                                <li id="menu-item-228"
-                                    class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-228 parent parent-megamenu item-megamenu menu-item-has-children">
-                                    <a class="akasha-menu-item-title" title="Shop"
-                                        href="{{ route('route_FrontEnd_Product') }}">Bất động sản</a>
-                                </li>
-                                <li id="menu-item-229"
-                                    class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-229 parent parent-megamenu item-megamenu menu-item-has-children">
-                                    <a class="akasha-menu-item-title" title="Elements"
-                                        href="{{ route('route_FrontEnd_News') }}">Bài viết</a>
-                                </li>
-                                <li id="menu-item-996"
-                                    class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-996 parent parent-megamenu item-megamenu menu-item-has-children">
-                                    <a class="akasha-menu-item-title" title="Blog" href="#">Liên hệ</a>
-                                </li>
-                                <li id="menu-item-237"
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-237 parent">
-                                    <a class="akasha-menu-item-title" title="Pages" href="#">Về chúng tôi</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="header-control">
-                        <div class="header-control-inner">
-                            <div class="meta-dreaming">
-                                <div class="header-search akasha-dropdown">
-                                    <div class="header-search-inner" data-akasha="akasha-dropdown">
-                                        <a href="#" class="link-dropdown block-link">
-                                            <span class="flaticon-magnifying-glass-1"></span>
-                                        </a>
-                                    </div>
-                                    <div class="block-search">
-                                        <form action="{{ route('route_FrontEnd_Home') }}" role="search" method="get"
-                                            class="form-search block-search-form akasha-live-search-form">
-                                            @csrf
-                                            <div class="form-content search-box results-search">
-                                                <div class="inner">
-                                                    <input autocomplete="off" class="searchfield txt-livesearch input"
-                                                        name="name" value="{{ $name }}"
-                                                        placeholder="Nhập tên sản phẩm..." type="text">
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.php">
+                <span>
+                    <img src="https://img.upanh.tv/2023/07/12/Suit_able_auto_x2.jpg" alt="Suit_able_auto_x2.jpg"
+                        border="0">
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse innerpage_navbar" id="navbarSupportedContent">
+                <ul class="navbar-nav  ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ao.php">
+                            áo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quan.php">
+                            quần
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bosuutap.php">
+                            bộ sưu tập
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lienhe.php">liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">chăm sóc khách hàng</a>
+                        <ul class="sub-menu1">
+                            <li><a class="nav-link" href="doitra.php">Chính sách đổi trả</a></li>
+                            <li><a class="nav-link" href="baohanh.php">Chính sách bảo hành</a></li>
+                            <li><a class="nav-link" href="thanhvien.php">Chính sách thành viên</a></li>
+                            <li><a class="nav-link" href="vanchuyen.php">Chính sách vận chuyển</a></li>
+                            <li><a class="nav-link" href="muahang.php">Hướng dẫn mua hàng</a></li>
+                            <li><a class="nav-link" href="baoquan.php">Hướng dẫn bảo quản</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="user_option">
+
+                    <a href="{{ route('route_FrontEnd_Login') }}">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>
+                            Đăng nhập
+                        </span>
+                    </a>
+                    <a href="register.php">
+                        <i class="fa fa-user2" aria-hidden="true"></i>
+                        <span>
+                            Đăng kí
+                        </span>
+                    </a>
+
+                    <!-- Giỏ hàng -->
+                    <div class="header__cart">
+                        <div class="header__cart-wrap">
+                            <i class="fa fa-shopping-bag"></i>
+                            <span class="header__cart-notice">
+                            </span>
+                            <!-- No cart: header__cart-list--no-cart -->
+                            <div class="header__cart-list">
+                                <img src="./no-cart.png" alt="" class="header__cart-no-cart-img">
+                                <span class="header__cart-list-no-cart-msg">
+                                    Chưa có sản phẩm
+                                </span>
+
+                                <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                                <ul class="header__cart-list-item">
+                                    <!-- cart item -->
+
+                                    <li class="header__cart-item">
+                                        <img src="" alt="" class="header__cart-img">
+                                        <div class="header__cart-item-info">
+                                            <div class="header__cart-item-head">
+                                                <h5 class="header__cart-item-name"></h5>
+                                                <div class="header__cart-item-price-wrap">
+                                                    <span class="header__cart-item-price"></span>
+                                                    <span class="header__cart-item-multiply">x</span>
+                                                    <span class="header__cart-item-qnt"></span>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn-submit">
-                                                <span class="flaticon-magnifying-glass-1"></span>
-                                            </button>
-                                        </form><!-- block search -->
+                                            <div class="header__cart-item-body">
+                                                <span class="header__cart-item-description">
+                                                    Phân loại:
+                                                </span>
+                                                <form action="index.php" method='post' enctype='multipart/form-data'>
+                                                    <span class="header__cart-item-remove">
+                                                        <input type='hidden' id='xoa_SP' name='id_xoa_sp'
+                                                            value="">
+                                                        <button class="btn nav_delete-btn" name='xoa_sp'
+                                                            type="submit">
+                                                            Xóa
+                                                        </button>
+                                                    </span>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a href="gio-hang.php" class="header__cart-view-cart btn btn--primary">Xem giỏ
+                                    hàng</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <form action="search.php" method="get" class="form-inline">
+                        <input type="text" value="" placeholder="Nội dung tìm kiếm" name="noidungtimkiem"
+                            id="Timkiem" style="font-size: 12px; border: none; padding: 6px; margin-right: 12px;">
+                        <button class="btn nav_search-btn" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+
+    <section class="slider_section animate__animated animate__fadeIn">
+        <div class="slider_container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Welcome To Our <br>
+                                            SuitAble Shop
+                                        </h1>
+                                        <p>
+                                            SuitAble là một thương hiệu thời trang trẻ được thành lập vào tháng 7
+                                            năm 2023.
+                                        </p>
+                                        <a href="lienhe.php">
+                                            Liên hệ với chúng tôi
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="akasha-dropdown-close">x</div>
-                                <div class="menu-item block-user block-dreaming akasha-dropdown">
-                                    @if (Auth::check())
-                                        @if (Auth::user()->lastName)
-                                            <img class="rounded-circle block-link" style="height: 30px; width: 30px"
-                                                src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
-                                        @else
-                                            <img class="rounded-circle block-link" style="height: 30px; width: 30px"
-                                                src="{{ asset(Auth::user()->avatar) ? '' . Storage::url(Auth::user()->avatar) : Auth::user()->name }}"
-                                                alt="{{ Auth::user()->name }}">
-                                        @endif
-                                    @else
-                                        <a class="block-link" href="#">
-                                            <span class="flaticon-profile"></span>
-                                        </a>
-                                    @endif
-
-                                    <ul class="sub-menu">
-                                        @if (!Auth::check())
-                                            <li
-                                                class="menu-item akasha-MyAccount-navigation-link akasha-MyAccount-navigation-link--dashboard is-active">
-                                                <a href="{{ route('route_FrontEnd_Login') }}">Đăng nhập</a>
-                                            </li>
-                                        @endif
-                                        <li
-                                            class="menu-item akasha-MyAccount-navigation-link akasha-MyAccount-navigation-link--customer-logout">
-                                            <a href="{{ route('logout-user') }}">Đăng xuất</a>
-                                        </li>
-                                    </ul>
+                                <div class="col-md-5 ">
+                                    <div class="img-box">
+                                        <img src="{{ asset('client/assets/images/anhbia1.png') }}" alt="" />
+                                    </div>
                                 </div>
-                                <div class="block-minicart block-dreaming akasha-mini-cart">
-                                    <div class="block-cart-link">
-                                        <a class="block-link" href="{{ route('route_FrontEnd_Cart') }}">
-                                            <span class="flaticon-bag"></span>
-                                            <span class="count">
-                                                @php
-                                                    $cart = session('cart');
-                                                @endphp
-                                                @if (isset($cart) && is_array($cart))
-                                                    {{ $numberOfItemsInCart }}
-                                                @else
-                                                    0
-                                                @endif
-                                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Welcome To Our <br>
+                                            SuitAble Shop
+                                        </h1>
+                                        <p>
+                                            Với quan điểm bảo vệ môi trường SuitAble luôn sử dụng những chất liệu
+                                            thân thiện với môi trường(sợi Cotton).
+                                        </p>
+                                        <a href="lienhe.php">
+                                            Liên hệ với chúng tôi
                                         </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 ">
+                                    <div class="img-box">
+                                        <img src="{{ asset('client/assets/images/anhbia2.png') }}" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Welcome To Our <br>
+                                            SuitAble Shop
+                                        </h1>
+                                        <p>
+                                            Đến với SuitAble, chúng tôi sẽ giúp bạn trở nên trẻ trung, phong cách
+                                            thông qua thời trang.
+                                        </p>
+                                        <a href="lienhe.php">
+                                            Liên hệ với chúng tôi
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 ">
+                                    <div class="img-box">
+                                        <img src="{{ asset('client/assets/images/anhbia3.png') }}" alt="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="header-mobile">
-        <div class="header-mobile-left">
-            <div class="block-menu-bar">
-                <a class="menu-bar menu-toggle" href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </a>
-            </div>
-            <div class="header-search akasha-dropdown">
-                <div class="header-search-inner" data-akasha="akasha-dropdown">
-                    <a href="#" class="link-dropdown block-link">
-                        <span class="flaticon-magnifying-glass-1"></span>
+                <div class="carousel_btn-box">
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                        data-slide="prev">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <img src="{{ asset('client/assets/images/line.png') }}" alt="" />
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                        data-slide="next">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
                     </a>
                 </div>
-                <div class="block-search">
-                    <form action="{{ route('route_FrontEnd_Home') }}" role="search" method="get"
-                        class="form-search block-search-form akasha-live-search-form">
-                        @csrf
-                        <div class="form-content search-box results-search">
-                            <div class="inner">
-                                <input autocomplete="off" class="searchfield txt-livesearch input" name="name"
-                                    value="{{ $name }}" placeholder="Nhập tên sản phẩm..." type="text">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            <span class="flaticon-magnifying-glass-1"></span>
-                        </button>
-                    </form><!-- block search -->
-                </div>
             </div>
         </div>
-        <div class="header-mobile-mid">
-            <div class="header-logo">
-                <a href="index.html"><img alt="Akasha" src="{{ asset('client/assets/images/logo.png') }}"
-                        class="logo"></a>
-            </div>
-        </div>
-        <div class="header-mobile-right">
-            <div class="header-control-inner">
-                <div class="meta-dreaming">
-                    <div class="menu-item block-user block-dreaming akasha-dropdown">
-                        @if (Auth::check())
-                            @if (Auth::user()->lastName)
-                                <img class="rounded-circle block-link" style="height: 30px; width: 30px"
-                                    src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
-                            @else
-                                <img class="rounded-circle block-link" style="height: 30px; width: 30px"
-                                    src="{{ asset(Auth::user()->avatar) ? '' . Storage::url(Auth::user()->avatar) : Auth::user()->name }}"
-                                    alt="{{ Auth::user()->name }}">
-                            @endif
-                        @else
-                            <a class="block-link" href="#">
-                                <span class="flaticon-profile"></span>
-                            </a>
-                        @endif
-
-                        <ul class="sub-menu">
-                            @if (!Auth::check())
-                                <li
-                                    class="menu-item akasha-MyAccount-navigation-link akasha-MyAccount-navigation-link--dashboard is-active">
-                                    <a href="{{ route('route_FrontEnd_Login') }}">Đăng nhập</a>
-                                </li>
-                            @endif
-                            <li
-                                class="menu-item akasha-MyAccount-navigation-link akasha-MyAccount-navigation-link--customer-logout">
-                                <a href="{{ route('logout-user') }}">Đăng xuất</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="block-minicart block-dreaming akasha-mini-cart akasha-dropdown">
-                        <div class="shopcart-dropdown block-cart-link" data-akasha="akasha-dropdown">
-                            <a class="block-link" href="{{ route('route_FrontEnd_Cart') }}">
-                                <span class="flaticon-bag"></span>
-                                <span class="count">
-                                    @php
-                                        $cart = session('cart');
-                                    @endphp
-                                    @if (isset($cart) && is_array($cart))
-                                        {{ $numberOfItemsInCart }}
-                                    @else
-                                        0
-                                    @endif
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+    </section>
+</div>

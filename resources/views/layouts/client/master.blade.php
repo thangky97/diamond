@@ -1,58 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from dreamingtheme.kiendaotac.com/html/akasha/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Apr 2024 15:16:25 GMT -->
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('client/assets/images/favicon.png') }}" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/animate.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/chosen.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/font-awesome.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/jquery.scrollbar.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/lightbox.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/magnific-popup.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/slick.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/fonts/flaticon.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/megamenu.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/dreaming-attribute.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/style.css') }}" />
-    <title>@yield('title') </title>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="{{ asset('client/assets/images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>
+        Trang chủ - SuitAble
+    </title>
+    <style>
+        /* Ẩn viền của video */
+        video {
+            outline: none;
+        }
+    </style>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('client/assets/css/bootstrap.css') }}" />
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('client/assets/css/style.css') }}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{{ asset('client/assets/css/responsive.css') }}" rel="stylesheet" />
 </head>
 
 <body>
+    <div id="preloader">
+        <video id="status" autoplay muted>
+            <source src="{{ asset('client/asset/images/intro.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- header -->
     @include('layouts.client.header')
 
+    <!-- content -->
     @yield('content')
+
+    <!-- footer -->
 
     @include('layouts.client.footer')
 
-    <a href="#" class="backtotop active">
-        <i class="fa fa-angle-up"></i>
-    </a>
-    <script src="{{ asset('client/assets/js/jquery-1.12.4.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/chosen.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/countdown.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/jquery.scrollbar.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/lightbox.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/slick.js') }}"></script>
-    <script src="{{ asset('client/assets/js/jquery.zoom.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/threesixty.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('client/assets/js/mobilemenu.js') }}"></script>
-    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC3nDHy1dARR-Pa_2jjPCjvsOR4bcILYsM'></script>
-    <script src="{{ asset('client/assets/js/functions.js') }}"></script>
+    <script src="{{ asset('client/assets/js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('client/assets/js/bootstrap.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="{{ asset('client/assets/js/custom.js') }}"></script>
+    <script>
+        $(window).on('load', function() {
+            $('#status').delay(4000).fadeOut('fast');
+            $('#preloader').delay(3000).fadeOut('fast');
+            $('body').delay(4000).css({
+                'overflow': 'visible'
+            });
+        })
+    </script>
+
 </body>
 
 </html>
