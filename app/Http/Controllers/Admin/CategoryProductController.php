@@ -32,11 +32,10 @@ class CategoryProductController extends Controller
 
         if ($request->isMethod('post')) {
             $request->validate([
-                'name' => 'required|min:3|max:40',
+                'name' => 'required|min:3',
             ], [
                 'name.required' => 'Tên danh mục bắt buộc nhập!',
                 'name.min' => 'Tên tối thiểu 3 ký tự!',
-                'name.max' => 'Tên tối đa là 40 ký tự!',
             ], []);
 
             $params = [];

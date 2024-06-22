@@ -22,7 +22,7 @@ class CategoryProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|min:3|max:40',
+            'name' => 'required|min:3',
         ];
     }
 
@@ -31,7 +31,6 @@ class CategoryProductRequest extends FormRequest
         return [
             'name.required' => 'Tên danh mục bắt buộc nhập!',
             'name.min' => 'Tên tối thiểu 3 ký tự!',
-            'name.max' => 'Tên tối đa là 40 ký tự!',
         ];
     }
 }
