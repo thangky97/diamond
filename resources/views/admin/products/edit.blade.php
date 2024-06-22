@@ -31,8 +31,17 @@
                                     method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
-                                        <label class="form-label">Tên <span
-                                            class="text-danger">*</span></label>
+                                        <label class="form-label">Mã SP <span class="text-danger">*</span></label>
+                                        <input type="text" name="code" class="form-control"
+                                            value="{{ $product->code }}">
+                                        @error('code')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Tên SP <span class="text-danger">*</span></label>
                                         <input type="text" name="name" class="form-control"
                                             value="{{ $product->name }}">
                                         @error('name')
@@ -57,7 +66,7 @@
                                         <label class="form-label">Giảm giá </label>
                                         <input type="number" name="discount" class="form-control"
                                             value="{{ $product->discount }}">
-                                            @error('discount')
+                                        @error('discount')
                                             <div>
                                                 <p class="text-danger">{{ $message }}</p>
                                             </div>
@@ -65,10 +74,10 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Số lượng sản phẩm </label>
-                                        <input type="number" name="quantity" class="form-control"
-                                            value="{{ $product->quantity }}">
-                                            @error('quantity')
+                                        <label class="form-label">Ship </label>
+                                        <input type="number" name="ship" class="form-control"
+                                            value="{{ $product->ship }}">
+                                        @error('ship')
                                             <div>
                                                 <p class="text-danger">{{ $message }}</p>
                                             </div>
@@ -76,7 +85,8 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Danh mục sản phẩm <span class="text-danger">*</span></label>
+                                        <label class="form-label">Danh mục sản phẩm <span
+                                                class="text-danger">*</span></label>
                                         <select name="cate_id" id="" class="form-control">
                                             @foreach ($cate_id as $cate)
                                                 <option value="{{ $cate->id }}"
@@ -104,8 +114,7 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Ảnh <span
-                                            class="text-danger">*</span></label>
+                                        <label class="form-label">Ảnh <span class="text-danger">*</span></label>
                                         <div>
                                             <div class="form-file">
                                                 <input type="file" name="images" class="form-file-input form-control">
@@ -114,6 +123,41 @@
                                                         alt="{{ $product->name }}" width="100">
                                                 @endif
                                                 @error('images')
+                                                    <div>
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Ảnh 1 <span class="text-danger">*</span></label>
+                                        <div>
+                                            <div class="form-file">
+                                                <input type="file" name="images1" class="form-file-input form-control">
+                                                @if (isset($product) && $product->image1)
+                                                    <img src="{{ asset($product->image1 ? '' . Storage::url($product->image1) : $product->name) }}"
+                                                        alt="{{ $product->name }}" width="100">
+                                                @endif
+                                                @error('images1')
+                                                    <div>
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Ảnh 2 <span class="text-danger">*</span></label>
+                                        <div>
+                                            <div class="form-file">
+                                                <input type="file" name="images2"
+                                                    class="form-file-input form-control">
+                                                @if (isset($product) && $product->image2)
+                                                    <img src="{{ asset($product->image2 ? '' . Storage::url($product->image2) : $product->name) }}"
+                                                        alt="{{ $product->name }}" width="100">
+                                                @endif
+                                                @error('images2')
                                                     <div>
                                                         <p class="text-danger">{{ $message }}</p>
                                                     </div>
@@ -133,14 +177,15 @@
                                             <option value="0"
                                                 {{ isset($product) && $product->status === 0 ? 'selected' : '' }}>
                                                 Khóa</option>
-                                            </select>
-                                            @error('status')
-                                                <div>
-                                                    <p class="text-danger">{{ $message }}</p>
-                                                </div>
-                                            @enderror
+                                        </select>
+                                        @error('status')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                        @enderror
                                     </div>
-                                    <input type="text" name="updated_at" value="{{date("Y-m-d H:i:s", strtotime("now"))}}" hidden>
+                                    <input type="text" name="updated_at"
+                                        value="{{ date('Y-m-d H:i:s', strtotime('now')) }}" hidden>
                                     <div class="mb-0">
                                         <div>
                                             <button type="submit" class="btn btn-primary waves-effect waves-light me-1">

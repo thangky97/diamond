@@ -50,12 +50,14 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">ID</th>
+                                                <th scope="col">Mã SP</th>
                                                 <th scope="col">Tên SP</th>
                                                 <th scope="col">Giá</th>
-                                                <th scope="col">Số lượng sp</th>
                                                 <th scope="col">Giảm giá</th>
+                                                <th scope="col">Ship</th>
                                                 <th scope="col">Danh mục</th>
-                                                <th scope="col">Mô tả ngắn</th>
+                                                <th scope="col">Lượt mua</th>
+                                                {{-- <th scope="col">Mô tả ngắn</th> --}}
                                                 <th scope="col">Trạng thái</th>
                                                 <th scope="col">Hành động</th>
                                             </tr>
@@ -63,24 +65,22 @@
                                         <tbody>
                                             @forelse ($products as $product)
                                                 <tr>
-                                                    <th scope="row" class="text-primary">{{ 'PR000' . $product->id }}</th>
+                                                    <th scope="row" class="text-primary">{{ 'PR000' . $product->id }}
+                                                    </th>
+                                                    <td>{{ $product->code }}</td>
                                                     <td>
                                                         <div>
+                                                            @php
+                                                                $limitedMessage = Str::limit($product->name, 15, '...');
+                                                            @endphp
                                                             <img src="{{ asset($product->image) ? '' . Storage::url($product->image) : $product->name }}"
                                                                 alt="image" class="avatar-xs rounded-circle me-2">
-                                                            {{ $product->name }}
+                                                            {!! $limitedMessage !!}
                                                         </div>
                                                     </td>
                                                     <td>
                                                         @if ($product->price)
                                                             <span>{{ number_format($product->price) }}</span>
-                                                        @else
-                                                            <span></span>
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        @if ($product->quantity)
-                                                            <span>{{ $product->quantity }}</span>
                                                         @else
                                                             <span></span>
                                                         @endif
@@ -93,6 +93,13 @@
                                                         @endif
                                                     </td>
                                                     <td>
+                                                        @if ($product->ship)
+                                                            <span>{{ number_format($product->ship) }}</span>
+                                                        @else
+                                                            <span></span>
+                                                        @endif
+                                                    </td>
+                                                    <td>
                                                         @if ($product->category_product)
                                                             <span>{{ $product->category_product->name }}</span>
                                                         @else
@@ -100,15 +107,22 @@
                                                         @endif
                                                     </td>
                                                     <td>
+                                                        {{ $product->luotmua }}
+                                                    </td>
+                                                    {{-- <td>
                                                         @if ($product->short_description)
                                                             @php
-                                                                $limitedMessage = Str::limit($product->short_description, 20, '...');
+                                                                $limitedMessage = Str::limit(
+                                                                    $product->short_description,
+                                                                    20,
+                                                                    '...',
+                                                                );
                                                             @endphp
                                                             <span>{!! $limitedMessage !!}</span>
                                                         @else
                                                             <span></span>
                                                         @endif
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
                                                         @if ($product && $product->status === 1)
                                                             <span class="badge bg-success">Hoạt động</span>

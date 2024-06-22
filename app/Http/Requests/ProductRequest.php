@@ -22,7 +22,8 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|min:3|max:40',
+            'code' => ['required', 'regex:/^\S*$/'],
+            'name' => 'required|min:3',
             'price' => 'required|gte:0',
             // 'discount' => 'gte:0',
             // 'quantity' => 'gte:0',
@@ -31,8 +32,16 @@ class ProductRequest extends FormRequest
             'images' =>
             [
                 'image',
-                'mimes:jpeg,png,jpg',
-                'mimetypes:image/jpeg,image/png',
+                'max:2048',
+            ],
+            'images1' =>
+            [
+                'image',
+                'max:2048',
+            ],
+            'images2' =>
+            [
+                'image',
                 'max:2048',
             ],
         ];
@@ -41,9 +50,10 @@ class ProductRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'code.required' => 'Mã sản phẩm bắt buộc nhập!',
+            'code.regex' => 'Mã sản phẩm không được chứa khoảng trắng!',
             'name.required' => 'Tên sản phẩm bắt buộc nhập!',
             'name.min' => 'Tên tối thiểu 3 ký tự!',
-            'name.max' => 'Tên tối đa là 40 ký tự!',
             'price.required' => 'Vui lòng nhập giá sản phẩm!',
             'price.gte' => 'Giá phải là số dương không âm',
             // 'discount.gte' => 'Giảm giá phải là số dương không âm',
@@ -52,6 +62,10 @@ class ProductRequest extends FormRequest
             'cate_id.required' => 'Vui lòng chọn danh mục!',
             'images.image' => 'Bắt buộc phải là ảnh!',
             'images.max' => 'Ảnh không được lớn hơn 2MB!',
+            'images1.image' => 'Bắt buộc phải là ảnh!',
+            'images1.max' => 'Ảnh không được lớn hơn 2MB!',
+            'images2.image' => 'Bắt buộc phải là ảnh!',
+            'images2.max' => 'Ảnh không được lớn hơn 2MB!',
         ];
     }
 }

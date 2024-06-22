@@ -30,6 +30,16 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
+                                        <label class="form-label">Mã sản phẩm <span class="text-danger">*</span></label>
+                                        <input type="text" name="code" class="form-control"
+                                            value="{{ old('code', isset($request['code']) ? $request['code'] : '') }}">
+                                        @error('code')
+                                            <div>
+                                                <p class="text-danger">{{ $message }}</p>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
                                         <label class="form-label">Tên sản phẩm <span class="text-danger">*</span></label>
                                         <input type="text" name="name" class="form-control"
                                             value="{{ old('name', isset($request['name']) ? $request['name'] : '') }}">
@@ -55,7 +65,7 @@
                                         <label class="form-label">Giảm giá </label>
                                         <input type="number" name="discount" class="form-control"
                                             value="{{ old('discount', isset($request['discount']) ? $request['discount'] : '') }}">
-                                            @error('discount')
+                                        @error('discount')
                                             <div>
                                                 <p class="text-danger">{{ $message }}</p>
                                             </div>
@@ -63,10 +73,10 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Số lượng sản phẩm </label>
-                                        <input type="number" name="quantity" class="form-control"
-                                            value="{{ old('quantity', isset($request['quantity']) ? $request['quantity'] : '') }}">
-                                            @error('quantity')
+                                        <label class="form-label">Phí ship </label>
+                                        <input type="number" name="ship" class="form-control"
+                                            value="{{ old('ship', isset($request['ship']) ? $request['ship'] : '') }}">
+                                        @error('ship')
                                             <div>
                                                 <p class="text-danger">{{ $message }}</p>
                                             </div>
@@ -74,7 +84,8 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Danh mục sản phẩm <span class="text-danger">*</span></label>
+                                        <label class="form-label">Danh mục sản phẩm <span
+                                                class="text-danger">*</span></label>
                                         <select name="cate_id" class="form-select" id="validationCustom04">
                                             <option selected value="">Chọn danh mục</option>
                                             @foreach ($category as $cate)
@@ -111,6 +122,41 @@
                                                         width="100">
                                                 @endif
                                                 @error('images')
+                                                    <div>
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Ảnh 1<span class="text-danger">*</span></label>
+                                        <div>
+                                            <div class="form-file">
+                                                <input type="file" name="images1" class="form-file-input form-control">
+                                                @if (isset($product) && $product->avatar)
+                                                    <img src="{{ asset($product->avatar) }}" alt="{{ $product->name }}"
+                                                        width="100">
+                                                @endif
+                                                @error('images1')
+                                                    <div>
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Ảnh 2<span class="text-danger">*</span></label>
+                                        <div>
+                                            <div class="form-file">
+                                                <input type="file" name="images2"
+                                                    class="form-file-input form-control">
+                                                @if (isset($product) && $product->avatar)
+                                                    <img src="{{ asset($product->avatar) }}" alt="{{ $product->name }}"
+                                                        width="100">
+                                                @endif
+                                                @error('images2')
                                                     <div>
                                                         <p class="text-danger">{{ $message }}</p>
                                                     </div>

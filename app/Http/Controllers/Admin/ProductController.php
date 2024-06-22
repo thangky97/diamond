@@ -32,7 +32,8 @@ class ProductController extends Controller
 
         if ($request->isMethod('post')) {
             $request->validate([
-                'name' => 'required|min:3|max:40',
+                'code' => ['required', 'regex:/^\S*$/'],
+                'name' => 'required|min:3',
                 'price' => 'required|gte:0',
                 // 'discount' => 'gte:0',
                 // 'quantity' => 'gte:0',
@@ -42,14 +43,25 @@ class ProductController extends Controller
                 [
                     'required',
                     'image',
-                    'mimes:jpeg,png,jpg',
-                    'mimetypes:image/jpeg,image/png',
+                    'max:2048',
+                ],
+                'images1' =>
+                [
+                    'required',
+                    'image',
+                    'max:2048',
+                ],
+                'images2' =>
+                [
+                    'required',
+                    'image',
                     'max:2048',
                 ],
             ], [
+                'code.required' => 'Mã sản phẩm bắt buộc nhập!',
+                'code.regex' => 'Mã sản phẩm không được chứa khoảng trắng!',
                 'name.required' => 'Tên sản phẩm bắt buộc nhập!',
                 'name.min' => 'Tên tối thiểu 3 ký tự!',
-                'name.max' => 'Tên tối đa là 40 ký tự!',
                 'price.required' => 'Vui lòng nhập giá sản phẩm!',
                 'price.gte' => 'Giá phải là số dương không âm',
                 // 'discount.gte' => 'Giảm giá phải là số dương không âm',
@@ -59,6 +71,12 @@ class ProductController extends Controller
                 'images.required' => 'Ảnh không được để trống!',
                 'images.image' => 'Bắt buộc phải là ảnh!',
                 'images.max' => 'Ảnh không được lớn hơn 2MB!',
+                'images1.required' => 'Ảnh không được để trống!',
+                'images1.image' => 'Bắt buộc phải là ảnh!',
+                'images1.max' => 'Ảnh không được lớn hơn 2MB!',
+                'images2.required' => 'Ảnh không được để trống!',
+                'images2.image' => 'Bắt buộc phải là ảnh!',
+                'images2.max' => 'Ảnh không được lớn hơn 2MB!',
             ], []);
 
             $params = [];
@@ -66,6 +84,12 @@ class ProductController extends Controller
             unset($params['cols']['_token']);
             if ($request->hasFile('images') && $request->file('images')->isValid()) {
                 $params['cols']['image'] = $this->uploadFile($request->file('images'));
+            }
+            if ($request->hasFile('images1') && $request->file('images1')->isValid()) {
+                $params['cols']['image1'] = $this->uploadFile($request->file('images1'));
+            }
+            if ($request->hasFile('images2') && $request->file('images2')->isValid()) {
+                $params['cols']['image2'] = $this->uploadFile($request->file('images2'));
             }
 
             $modelTes = new Product();
@@ -103,6 +127,12 @@ class ProductController extends Controller
 
         if ($request->hasFile('images') && $request->file('images')->isValid()) {
             $params['cols']['image'] = $this->uploadFile($request->file('images'));
+        }
+        if ($request->hasFile('images1') && $request->file('images1')->isValid()) {
+            $params['cols']['image1'] = $this->uploadFile($request->file('images1'));
+        }
+        if ($request->hasFile('images2') && $request->file('images2')->isValid()) {
+            $params['cols']['image2'] = $this->uploadFile($request->file('images2'));
         }
 
         unset($params['cols']['_token']);
