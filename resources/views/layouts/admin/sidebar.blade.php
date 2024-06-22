@@ -81,6 +81,16 @@
                             </ul>
                         </li>
 
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="mdi mdi-phone-ring"></i>
+                                <span>Liên hệ</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('route_BackEnd_Contact_List') }}">Danh sách liên hệ</a></li>
+                            </ul>
+                        </li>
+
                         <li class="menu-title">Voucher</li>
 
                         <li>

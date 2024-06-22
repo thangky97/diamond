@@ -107,12 +107,6 @@ Route::prefix('admin')
             Route::post('/update/{id}', 'Admin\WarrantyController@update')->name('route_BackEnd_Warranty_Update');
         });
 
-        Route::prefix('/comment')->group(function () {
-            Route::get('/', 'Admin\CommentController@index')->name('route_BackEnd_Comment_List');
-            Route::get('/edit/{id}', 'Admin\CommentController@edit')->name('route_BackEnd_Comment_Edit');
-            Route::delete('/delete/{id}', 'Admin\CommentController@delete')->name('route_BackEnd_Comment_Delete');
-        });
-
         Route::prefix('/order')->group(function () {
             Route::get('/', 'Admin\OrderController@index')->name('route_BackEnd_Orders_List');
             Route::get('/edit/{id}', 'Admin\OrderController@edit')->name('route_BackEnd_Orders_Edit');
@@ -139,6 +133,5 @@ Route::prefix('admin')
             Route::get('/', 'Admin\ContactController@index')->name('route_BackEnd_Contact_List');
             Route::get('/edit/{id}', 'Admin\ContactController@edit')->name('route_BackEnd_Contact_Edit');
             Route::post('/update/{id}', 'Admin\ContactController@update')->name('route_BackEnd_Contact_Update');
-            Route::get('/remove/{id}', 'Admin\ContactController@remove')->name('route_BackEnd_Contact_Remove');
         });
     });
