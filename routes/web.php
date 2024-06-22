@@ -127,6 +127,13 @@ Route::prefix('admin')
             Route::post('/update/{id}', 'Admin\VoucherController@update')->name('route_BackEnd_Voucher_Update');
         });
 
+        Route::prefix('/certificate')->group(function () {
+            Route::get('/', 'Admin\CertificateController@index')->name('route_BackEnd_Certificate_List');
+            Route::match(['get', 'post'], '/create', 'Admin\CertificateController@create')->name('route_BackEnd_Certificate_Create');
+            Route::get('/edit/{id}', 'Admin\CertificateController@edit')->name('route_BackEnd_Certificate_Edit');
+            Route::post('/update/{id}', 'Admin\CertificateController@update')->name('route_BackEnd_Certificate_Update');
+        });
+
         Route::prefix('/contact')->group(function () {
             Route::get('/', 'Admin\ContactController@index')->name('route_BackEnd_Contact_List');
             Route::get('/edit/{id}', 'Admin\ContactController@edit')->name('route_BackEnd_Contact_Edit');

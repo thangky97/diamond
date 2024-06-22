@@ -59,10 +59,10 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fa-space-shuttle"></i>
-                                <span>Danh sách phiếu bảo hành</span>
+                                <span>Phiếu bảo hành</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('route_BackEnd_Warranty_List') }}">Danh sách phiếu bảo
+                                <li><a href="{{ route('route_BackEnd_Warranty_List') }}">DS phiếu bảo
                                         hành</a>
                                 </li>
                                 <li><a href="{{ route('route_BackEnd_Warranty_Create') }}">Tạo mới</a></li>
@@ -85,7 +85,7 @@
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="mdi mdi-phone-ring"></i>
+                                <i class="mdi mdi-code"></i>
                                 <span>Mã giảm giá</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
@@ -93,6 +93,22 @@
                             </ul>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('route_BackEnd_Voucher_Create') }}">Tạo mới</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-title">Chứng nhận</li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="mdi mdi-certificate"></i>
+                                <span>Chứng nhận</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('route_BackEnd_Certificate_List') }}">Danh sách chứng nhận</a>
+                                </li>
+                            </ul>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('route_BackEnd_Certificate_Create') }}">Tạo mới</a></li>
                             </ul>
                         </li>
 
