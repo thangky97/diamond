@@ -50,7 +50,8 @@
                                     chuyển</a></li>
                             <li><a class="nav-link" href="{{ route('route_FrontEnd_Mua_Hang') }}">Hướng dẫn mua hàng</a>
                             </li>
-                            <li><a class="nav-link" href="baoquan.php">Hướng dẫn bảo quản</a></li>
+                            <li><a class="nav-link" href="{{ route('route_FrontEnd_Bao_Quan') }}p">Hướng dẫn bảo
+                                    quản</a></li>
                         </ul>
                     </li>
                 </ul>
