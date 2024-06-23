@@ -18,6 +18,7 @@ Route::get('/search', 'Client\HomeController@search')->name('route_FrontEnd_Sear
 Route::get('/products', 'Client\ShopController@index')->name('route_FrontEnd_Product');
 Route::get('/products/detail/{id}', 'Client\ShopController@detail')->name('route_FrontEnd_Product_Detail');
 Route::get('/product-category/{id}', 'Client\ShopController@cate')->name('route_FrontEnd_Category');
+Route::get('/category', 'Client\ShopController@pagecate')->name('route_FrontEnd_Product_Pages');
 
 Route::get('/contact', 'Client\ContactController@index')->name('route_FrontEnd_Contact');
 Route::post('/contact', 'Client\ContactController@create')->name('route_FrontEnd_Contact_Create');

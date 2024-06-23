@@ -20,18 +20,28 @@
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ao.php">
-                            áo
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages') }}">
+                            Nhẫn
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="quan.php">
-                            quần
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages') }}">
+                            Dây chuyền
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="bosuutap.php">
-                            bộ sưu tập
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages') }}">
+                            Bông tai
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages') }}">
+                            Vòng & lắc
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Product') }}">
+                            Bộ sưu tập
                         </a>
                     </li>
                     <li class="nav-item">
@@ -48,7 +58,8 @@
                                     viên</a></li>
                             <li><a class="nav-link" href="{{ route('route_FrontEnd_Van_Chuyen') }}">Chính sách vận
                                     chuyển</a></li>
-                            <li><a class="nav-link" href="{{ route('route_FrontEnd_Mua_Hang') }}">Hướng dẫn mua hàng</a>
+                            <li><a class="nav-link" href="{{ route('route_FrontEnd_Mua_Hang') }}">Hướng dẫn mua
+                                    hàng</a>
                             </li>
                             <li><a class="nav-link" href="{{ route('route_FrontEnd_Bao_Quan') }}">Hướng dẫn bảo
                                     quản</a></li>
@@ -151,7 +162,7 @@
 
 
                     </div>
-                    <form action="{{ route('route_FrontEnd_Home') }}" method="get" class="form-inline">
+                    <form action="{{ route('route_FrontEnd_Search') }}" method="get" class="form-inline">
                         @csrf
                         <input type="text" name="name" value="{{ $name }}" placeholder="Tên sản phẩm"
                             id="Timkiem" style="font-size: 12px; border: none; padding: 6px; margin-right: 12px;">

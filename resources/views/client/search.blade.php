@@ -14,46 +14,48 @@
             </div>
 
             <div class='row'>
-                <div class='col-sm-6 col-md-4 col-lg-3'>
-                    <div class='box'>
-                        <a class='nav-link' href=''>
-                            <div class='img-box'>
+                @foreach ($listProduct as $item)
+                    <div class='col-sm-6 col-md-4 col-lg-3'>
+                        <div class='box'>
+                            <a class='nav-link' href="{{ route('route_FrontEnd_Product_Detail', ['id' => $item->id]) }}">
+                                <div class='img-box'>
 
-                                <img src='$row[hinhanh1]' alt=''>
-                            </div>
-                            <h6>
-                                <br>
-                            </h6>
+                                    <img src="{{ asset($item->image) ? '' . Storage::url($item->image) : $item->name }}"
+                                        alt=''>
 
-                            {{-- //giá cũ --}}
-                            <div class='detail-box'>
-
+                                </div>
                                 <h6>
-                                    ₫
-                                    <span>
-                                        <strike><br>
-                                        </strike>
-                                    </span>
+                                    {{ $item->name }}<br>
                                 </h6>
 
+                                {{-- //giá cũ --}}
+                                <div class='detail-box'>
+                                    <h6>
+                                        <span>
+                                            <strike>
+                                                {{ number_format($item->price) }} <br>
+                                            </strike>
+                                        </span>
+                                    </h6>
 
-                                {{-- //giá mới --}}
-                                <h6>
-                                    ₫
+
+                                    {{-- //giá mới --}}
+                                    <h6>
+                                        {{ number_format($item->price - $item->discount) }}
+                                        <span>
+                                            <br>
+                                        </span>
+                                    </h6>
+                                </div>
+                                <div class='detail-box'>
                                     <span>
-                                        <br>
+                                        Đã mua: {{ $item->luotmua }}<br>
                                     </span>
-                                </h6>
-                            </div>
-                            <div class='detail-box'>
-                                <span>
-                                    Đã mua: <br>
-                                </span>
-                            </div>
-                        </a>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </section>

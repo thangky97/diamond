@@ -52,7 +52,6 @@
                                                 <th scope="col">ID</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Số điện thoại</th>
-                                                <th scope="col">Phương thức thanh toán</th>
                                                 <th scope="col">Tổng tiền</th>
                                                 <th scope="col">Ngày tạo</th>
                                                 <th scope="col">Trạng thái</th>
@@ -73,13 +72,6 @@
                                                     <td>
                                                         @if ($item->phone)
                                                             <span>{{ $item->phone }}</span>
-                                                        @else
-                                                            <span></span>
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        @if ($item->payment_type)
-                                                            <span>{{ $item->payment_type }}</span>
                                                         @else
                                                             <span></span>
                                                         @endif
@@ -120,9 +112,6 @@
                                                     </td>
                                                     <td>
                                                         <div>
-                                                            <a href="{{ route('route_BackEnd_Orders_PDF', $item->id) }}"
-                                                                class="btn btn-success mb-2">Export
-                                                                PDF</a>
                                                             <a href="{{ route('route_BackEnd_Orders_Edit', $item->id) }}"
                                                                 class="btn btn-primary btn-sm">Xem chi tiết đơn hàng</a>
                                                         </div>

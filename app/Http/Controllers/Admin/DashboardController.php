@@ -41,6 +41,24 @@ class DashboardController extends Controller
             ->whereDate('created_at', today())
             ->count();
 
+        //Doanh thu ngày
+        $this->v['totalPaymentDay'] = DB::table('orders')
+            ->join('orders_detail', 'orders.id', '=', 'orders_detail.order_id')
+            ->whereDate('orders_detail.created_at', today())
+            ->sum('orders_detail.total_payment');
+        //Doanh thu tháng
+        $this->v['totalPaymentMonth'] = DB::table('orders')
+            ->join('orders_detail', 'orders.id', '=', 'orders_detail.order_id')
+            ->whereMonth('orders_detail.created_at', now()->month)
+            ->whereYear('orders_detail.created_at', now()->year)
+            ->sum('orders_detail.total_payment');
+
+        //Doanh thu năm
+        $this->v['totalPaymentYear'] = DB::table('orders')
+            ->join('orders_detail', 'orders.id', '=', 'orders_detail.order_id')
+            ->whereYear('orders_detail.created_at', now()->year)
+            ->sum('orders_detail.total_payment');
+
         // Thời gian bắt đầu và kết thúc của tháng trước
         $startOfMonth = now()->subMonth()->startOfMonth();
         $endOfMonth = now()->subMonth()->endOfMonth();
