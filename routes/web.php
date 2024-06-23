@@ -42,8 +42,8 @@ Route::get('/cart', 'Client\CartController@index')->name('route_FrontEnd_Cart');
 Route::get('/cart/delete/{id}', 'Client\CartController@cartDelete')->name('cartDelete');
 Route::get('/cart/cartDeleteAll', 'Client\CartController@cartDeleteAll')->name('cartDeleteAll');
 
-Route::get('/checkout', 'Client\CheckoutController@index')->name('route_FrontEnd_Checkout');
-Route::post('/create-checkout', 'Client\CheckoutController@checkout')->name('route_FrontEnd_Create_Checkout');
+Route::post('/checkout', 'Client\CheckoutController@checkout')->name('route_FrontEnd_Checkout');
+// Route::post('/create-checkout', 'Client\CheckoutController@checkout')->name('route_FrontEnd_Create_Checkout');
 
 //login client
 Route::get('/login-user', 'Client\LoginController@index')->name('route_FrontEnd_Login');

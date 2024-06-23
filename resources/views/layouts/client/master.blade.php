@@ -40,6 +40,10 @@
 </head>
 
 <body>
+    {{-- <div id="preloader">
+        <img id="status" src="{{ asset('client/assets/images/intro.gif') }}" alt="">
+    </div> --}}
+
     <div id="preloader">
         <video id="status" autoplay muted>
             <source src="{{ asset('client/asset/images/intro.mp4') }}" type="video/mp4">

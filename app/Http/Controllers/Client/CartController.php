@@ -73,7 +73,6 @@ class CartController extends Controller
         }
 
         $request->session()->put('cart', $cart);
-
         return redirect()->route('route_FrontEnd_Cart');
     }
 
@@ -94,6 +93,7 @@ class CartController extends Controller
         } else {
             $numberOfItemsInCart = 0; // Nếu $cart không phải là mảng, số lượng sản phẩm trong giỏ hàng là 0
         }
+
 
         if (isset($_SESSION['cart'])) {
             return view('client.cart', $this->v, [

@@ -101,37 +101,50 @@
                                 <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
                                 <ul class="header__cart-list-item">
                                     <!-- cart item -->
-
-                                    <li class="header__cart-item">
-                                        <img src="" alt="" class="header__cart-img">
-                                        <div class="header__cart-item-info">
-                                            <div class="header__cart-item-head">
-                                                <h5 class="header__cart-item-name"></h5>
-                                                <div class="header__cart-item-price-wrap">
-                                                    <span class="header__cart-item-price"></span>
-                                                    <span class="header__cart-item-multiply">x</span>
-                                                    <span class="header__cart-item-qnt"></span>
+                                    @php
+                                        $cart = session('cart');
+                                        $tong = 0;
+                                    @endphp
+                                    @if ($cart)
+                                        @foreach ($cart as $item)
+                                            @php
+                                                $tong += $item[7];
+                                            @endphp
+                                            <li class="header__cart-item">
+                                                <img src="{{ asset($item[1]) ? '' . Storage::url($item[1]) : $item[2] }}"
+                                                    alt="" class="header__cart-img">
+                                                <div class="header__cart-item-info">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">{{ $item[2] }}</h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span
+                                                                class="header__cart-item-price">{{ number_format($item[6]) }}</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-qnt">1</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-description">
+                                                            {{-- Phân loại: --}}
+                                                        </span>
+                                                        <form action="#" method='get'
+                                                            enctype='multipart/form-data'>
+                                                            <span class="header__cart-item-remove">
+                                                                <button class="btn nav_delete-btn" name='xoa_sp'
+                                                                    type="submit"
+                                                                    onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')">
+                                                                    Xóa
+                                                                </button>
+                                                            </span>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="header__cart-item-body">
-                                                <span class="header__cart-item-description">
-                                                    Phân loại:
-                                                </span>
-                                                <form action="index.php" method='post' enctype='multipart/form-data'>
-                                                    <span class="header__cart-item-remove">
-                                                        <input type='hidden' id='xoa_SP' name='id_xoa_sp'
-                                                            value="">
-                                                        <button class="btn nav_delete-btn" name='xoa_sp'
-                                                            type="submit">
-                                                            Xóa
-                                                        </button>
-                                                    </span>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </li>
+                                            </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
-                                <a href="gio-hang.php" class="header__cart-view-cart btn btn--primary">Xem giỏ
+                                <a href="{{ route('route_FrontEnd_Cart') }}"
+                                    class="header__cart-view-cart btn btn--primary">Xem giỏ
                                     hàng</a>
                             </div>
                         </div>
