@@ -28,10 +28,10 @@
                             <tr class="table_san_pham">
                                 <td><img src="{{ asset($item[1]) ? '' . Storage::url($item[1]) : $item[2] }}" alt=""
                                         width="40" height="40"></td>
-                                <td> {{ $item[2] }}</td>
-                                <td> 1</td>
+                                <td>{{ $item[2] }}</td>
+                                <td>{{ $item[4] }}</td>
                                 <td>{{ number_format($item[6]) }}</td>
-                                <td>{{ number_format($item[6]) }}</td>
+                                <td>{{ number_format($item[7]) }}</td>
                             </tr>
                         @endforeach
                     @endif

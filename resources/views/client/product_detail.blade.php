@@ -106,15 +106,16 @@
 
 
 
-            <div class='so_luong'>
-                <p class='ts'>Số lượng:</p>
-                <button class='bs' onclick='changeQuantity(-1)'>-</button>
-                <p type="number" name="amount" min="1" value="1">1</p>
-                <button class='bs' onclick='changeQuantity(1)'>+</button>
-            </div>
-            <div>
-                <form action="{{ route('route_FrontEnd_Add_Cart') }}" method="post" enctype="multipart/form-data">
-                    @csrf
+            <form action="{{ route('route_FrontEnd_Add_Cart') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class='so_luong'>
+                    <p class='ts'>Số lượng:</p>
+                    <button type='button' class='bs' onclick='changeQuantity(-1)'>-</button>
+                    <input id="input-quantity" type="number" name="amount" size="2"
+                        class="form-control input-number pull-left" style="width: 7%" value="1" min="1" />
+                    <button type='button' class='bs' onclick='changeQuantity(1)'>+</button>
+                </div>
+                <div>
                     <button class='them'>
                         Thêm vào giỏ hàng
                     </button>
@@ -123,8 +124,8 @@
                     <input type="hidden" name="price" value="{{ $product->price }}">
                     <input type="hidden" name="discount" value="{{ $product->discount }}">
                     <input type="hidden" name="image" value="{{ $product->image }}">
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
         <div class='mo_ta'>
             <h3>Thông tin</h3>
@@ -149,5 +150,19 @@
     </section>
 
     </div>
+
+    <script>
+        function changeQuantity(amount) {
+            var quantityInput = document.getElementById('input-quantity');
+            var currentQuantity = parseInt(quantityInput.value);
+            var newQuantity = currentQuantity + amount;
+
+            if (newQuantity < 1) {
+                newQuantity = 1;
+            }
+
+            quantityInput.value = newQuantity;
+        }
+    </script>
 
 @endsection

@@ -54,7 +54,6 @@ class CartController extends Controller
         $cc = 0; // kiểm tra sp có trong giỏ hàng hay không?
 
         $cart = $request->session()->get('cart');
-        // dd($cart);
 
         for ($i = 0; $i < sizeof($cart); $i++) {
             if ($cart[$i][2] == $name) {
@@ -73,6 +72,7 @@ class CartController extends Controller
         }
 
         $request->session()->put('cart', $cart);
+
         return redirect()->route('route_FrontEnd_Cart');
     }
 

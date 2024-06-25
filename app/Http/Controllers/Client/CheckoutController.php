@@ -26,7 +26,7 @@ class CheckoutController extends Controller
         $user = auth()->user(); // Giả định người dùng đã đăng nhập
 
         if (!$user) {
-            return redirect()->route('login')->with('error', 'Vui lòng đăng nhập để tiếp tục.');
+            return redirect()->route('route_FrontEnd_Login')->with('error', 'Vui lòng đăng nhập để tiếp tục mua hàng');
         }
 
         $order = Order::create([
@@ -43,9 +43,9 @@ class CheckoutController extends Controller
                 'product_id' => $item[0],
                 'user_id' => $user->id,
                 'order_id' => $order->id,
-                'quantity' => 1,
+                'quantity' => $item[4],
                 'price' => $item[6],
-                'total_payment' => $item[6],
+                'total_payment' => $item[7],
                 'discount' => $item[5],
             ]);
         }
