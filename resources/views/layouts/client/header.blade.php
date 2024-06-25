@@ -25,17 +25,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages') }}">
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages_Daychuyen') }}">
                             Dây chuyền
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages') }}">
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages_Bongtai') }}">
                             Bông tai
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages') }}">
+                        <a class="nav-link" href="{{ route('route_FrontEnd_Product_Pages_Vonglac') }}">
                             Vòng & lắc
                         </a>
                     </li>

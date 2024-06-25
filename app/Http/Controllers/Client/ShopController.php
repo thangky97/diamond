@@ -46,10 +46,11 @@ class ShopController extends Controller
     public function pagecate(Request $request)
     {
         $name = $request->get('name');
+        $categoryId = 3;
         if ($name) {
-            $this->v['listProduct'] = Product::where('name', 'like', '%' . $name . '%')->paginate(10);
+            $this->v['listProduct'] = Product::where('name', 'like', '%' . $name . '%')->where('cate_id', $categoryId)->paginate(10);
         } else {
-            $this->v['listProduct'] = Product::where('status', '=', 1)->orderBy('id', 'desc')->paginate(10);
+            $this->v['listProduct'] = Product::where('status', '=', 1)->where('cate_id', $categoryId)->orderBy('id', 'desc')->paginate(10);
         }
 
         $cart = $request->session()->get('cart'); // Lấy giỏ hàng từ session
@@ -60,13 +61,82 @@ class ShopController extends Controller
             $numberOfItemsInCart = 0; // Nếu $cart không phải là mảng, số lượng sản phẩm trong giỏ hàng là 0
         }
 
-        //cate
+        //cate nhẫn
         $categoryProduct = DB::table('category_product')->get();
 
-        //products
-        $this->v['listProduct'] = Product::where('status', '=', 1)->orderBy('id', 'desc')->paginate(12);
-
         return view('client.category', $this->v, compact('name', 'categoryProduct', 'numberOfItemsInCart'));
+    }
+
+    public function pagecatedaychuyen(Request $request)
+    {
+        $name = $request->get('name');
+        $categoryId = 2;
+        if ($name) {
+            $this->v['listProduct'] = Product::where('name', 'like', '%' . $name . '%')->where('cate_id', $categoryId)->paginate(10);
+        } else {
+            $this->v['listProduct'] = Product::where('status', '=', 1)->where('cate_id', $categoryId)->orderBy('id', 'desc')->paginate(10);
+        }
+
+        $cart = $request->session()->get('cart'); // Lấy giỏ hàng từ session
+
+        if (is_array($cart)) {
+            $numberOfItemsInCart = count($cart); // Đếm số lượng sản phẩm trong giỏ hàng
+        } else {
+            $numberOfItemsInCart = 0; // Nếu $cart không phải là mảng, số lượng sản phẩm trong giỏ hàng là 0
+        }
+
+        //cate dây chuyền
+        $categoryProduct = DB::table('category_product')->get();
+
+        return view('client.categorydaychuyen', $this->v, compact('name', 'categoryProduct', 'numberOfItemsInCart'));
+    }
+
+    public function pagecatebongtai(Request $request)
+    {
+        $name = $request->get('name');
+        $categoryId = 1;
+        if ($name) {
+            $this->v['listProduct'] = Product::where('name', 'like', '%' . $name . '%')->where('cate_id', $categoryId)->paginate(10);
+        } else {
+            $this->v['listProduct'] = Product::where('status', '=', 1)->where('cate_id', $categoryId)->orderBy('id', 'desc')->paginate(10);
+        }
+
+        $cart = $request->session()->get('cart'); // Lấy giỏ hàng từ session
+
+        if (is_array($cart)) {
+            $numberOfItemsInCart = count($cart); // Đếm số lượng sản phẩm trong giỏ hàng
+        } else {
+            $numberOfItemsInCart = 0; // Nếu $cart không phải là mảng, số lượng sản phẩm trong giỏ hàng là 0
+        }
+
+        //cate dây chuyền
+        $categoryProduct = DB::table('category_product')->get();
+
+        return view('client.categorybongtai', $this->v, compact('name', 'categoryProduct', 'numberOfItemsInCart'));
+    }
+
+    public function pagecatevonglac(Request $request)
+    {
+        $name = $request->get('name');
+        $categoryId = 4;
+        if ($name) {
+            $this->v['listProduct'] = Product::where('name', 'like', '%' . $name . '%')->where('cate_id', $categoryId)->paginate(10);
+        } else {
+            $this->v['listProduct'] = Product::where('status', '=', 1)->where('cate_id', $categoryId)->orderBy('id', 'desc')->paginate(10);
+        }
+
+        $cart = $request->session()->get('cart'); // Lấy giỏ hàng từ session
+
+        if (is_array($cart)) {
+            $numberOfItemsInCart = count($cart); // Đếm số lượng sản phẩm trong giỏ hàng
+        } else {
+            $numberOfItemsInCart = 0; // Nếu $cart không phải là mảng, số lượng sản phẩm trong giỏ hàng là 0
+        }
+
+        //cate vòng lắc
+        $categoryProduct = DB::table('category_product')->get();
+
+        return view('client.categoryvonglac', $this->v, compact('name', 'categoryProduct', 'numberOfItemsInCart'));
     }
 
     public function cate($id, Request $request)

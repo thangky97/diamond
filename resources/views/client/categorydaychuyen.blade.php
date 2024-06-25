@@ -1,6 +1,6 @@
 @extends('layouts.client.master')
 
-@section('title', 'Danh mục nhẫn')
+@section('title', 'Danh mục dây chuyền')
 
 @section('content')
 
@@ -9,7 +9,7 @@
         <div class='container'>
             <div class='heading_container heading_center'>
                 <h2>
-                    Nhẫn
+                    Dây chuyền
                 </h2>
             </div>
 

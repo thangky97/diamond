@@ -18,7 +18,10 @@ Route::get('/search', 'Client\HomeController@search')->name('route_FrontEnd_Sear
 Route::get('/products', 'Client\ShopController@index')->name('route_FrontEnd_Product');
 Route::get('/products/detail/{id}', 'Client\ShopController@detail')->name('route_FrontEnd_Product_Detail');
 Route::get('/product-category/{id}', 'Client\ShopController@cate')->name('route_FrontEnd_Category');
-Route::get('/category', 'Client\ShopController@pagecate')->name('route_FrontEnd_Product_Pages');
+Route::get('/category-nhan', 'Client\ShopController@pagecate')->name('route_FrontEnd_Product_Pages');
+Route::get('/category-daychuyen', 'Client\ShopController@pagecatedaychuyen')->name('route_FrontEnd_Product_Pages_Daychuyen');
+Route::get('/category-bongtai', 'Client\ShopController@pagecatebongtai')->name('route_FrontEnd_Product_Pages_Bongtai');
+Route::get('/category-vonglac', 'Client\ShopController@pagecatevonglac')->name('route_FrontEnd_Product_Pages_Vonglac');
 
 Route::get('/contact', 'Client\ContactController@index')->name('route_FrontEnd_Contact');
 Route::post('/contact', 'Client\ContactController@create')->name('route_FrontEnd_Contact_Create');
